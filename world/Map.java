@@ -1,9 +1,10 @@
 package world;
 
-public class Map{
+public class Map extends Watcher{
     protected int mapSize;
     private int [][] map;
     public Map(int level){
+
         this.mapSize = (level - 1) * 5 + 10 - (level % 2);
         map = new int[mapSize][mapSize];
         for(int i = 0; i < mapSize; i++){

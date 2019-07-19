@@ -1,6 +1,6 @@
 package hero;
 
 public interface Action{
-    // public void updateAction();
-    // public void birthOfHero();
+    public void updatePostion();
+    public void birthOfHero();
 }
