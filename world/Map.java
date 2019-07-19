@@ -9,9 +9,7 @@ public class Map{
         for(int i = 0; i < mapSize; i++){
             for(int k = 0; k < this.mapSize; k++){
                 this.map[i][k] = 0;
-                System.out.print(k);
             }
-            System.out.print(i + "\n");
         }
     }
 }

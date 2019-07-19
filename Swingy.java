@@ -15,7 +15,7 @@ public class Swingy{
             String gameType = args[0].toLowerCase();
             if (gameType.equals("console")){
                 System.out.println(gameType);
-                Map m = new Map(7);
+                Map m = new Map(1);
             }
             if (gameType.equals("gui")){
                 System.out.println(gameType);
