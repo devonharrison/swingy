@@ -7,8 +7,8 @@ import hero.Action;
 import hero.Hero;
 import world.Coordinates;
 
-public class Super extends Hero implements Action{
-    Super(String name, String type, Coordinates coordinates){
+public class SuperHuman extends Hero implements Action{
+    SuperHuman(String name, String type, Coordinates coordinates){
         super(name, type, coordinates);
     }
     public void updatePostion(){

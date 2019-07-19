@@ -3,6 +3,16 @@ package hero;
 import world.Coordinates;
 
 public class Hero{
+    protected String name;
+    protected String type;
+    protected int level;
+    protected int experience;
+    protected int attacked;
+    protected int defense;
+    protected int hitPoints;
+    protected int id;
+    protected Coordinates coordinates;
+    private static int idCounter = 1;
     protected Hero(String name, String type, Coordinates coordinates){
         this.name = name;
         this.type = type;
@@ -14,16 +24,6 @@ public class Hero{
         this.coordinates = coordinates;
         this.id = nextId();
     }
-    protected String name;
-    protected String type;
-    protected int level;
-    protected int experience;
-    protected int attacked;
-    protected int defense;
-    protected int hitPoints;
-    protected int id;
-    protected Coordinates coordinates;
-    private static int idCounter = 1;
     private int nextId(){
         return (Hero.idCounter++);
     }
