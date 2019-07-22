@@ -12,8 +12,8 @@ public class Interlect extends Hero implements Action{
         super(name, type, coordinates);
     }
     public void updatePostion(){
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String type = in.readLine();
+        // BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        // String type = in.readLine();
 
     }
     public void birthOfHero(){
