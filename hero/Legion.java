@@ -1,6 +1,5 @@
 package hero;
 
-import hero.*;
 import world.Coordinates;
 import utils.CustomException;
 

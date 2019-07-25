@@ -1,6 +1,6 @@
 #!/bin/bash
 
 javac Swingy.java
-java Swingy console
+java Swingy gui
 rm world/*.class
 rm hero/*.class

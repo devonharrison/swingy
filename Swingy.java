@@ -1,8 +1,8 @@
-import world.Map;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import hero.*;
+import display.*;
 import world.*;
 
 public class Swingy{
@@ -38,7 +38,6 @@ public class Swingy{
                             System.out.println(GREEN + "You need to give your hero a name too, something cool perhaps?");
                             System.out.print(WHITE + "Hero name: ");
                             String name = in.readLine();
-                            Coordinates coordinates = new Coordinates(5, 5);
                             Action hero = new Legion().newHero(name, type.toLowerCase(), 5, 5);
                             hero.birthOfHero();
                     } catch(Exception e){
@@ -50,7 +49,7 @@ public class Swingy{
                 //}
             }
             if (gameType.equals("gui")){
-                System.out.println(gameType);
+                new Display("TEST", 500, 500);
             }
         }
     }
