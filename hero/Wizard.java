@@ -17,6 +17,7 @@ public class Wizard extends Hero implements Action{
 
     }
     public void birthOfHero(){
-        
+        System.out.println("I am here to save you");
+        System.out.print(this.name + " " + this.type + " " + this.id + " " + this.hitPoints);
     }
 }
