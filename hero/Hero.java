@@ -14,13 +14,25 @@ public class Hero{
     protected Coordinates coordinates;
     private static int idCounter = 1;
     protected Hero(String name, String type, Coordinates coordinates){
+        switch(type){
+            case "gaurdian":
+                this.attacked = 60;
+                this.defense = 20;
+            case "interlect":
+                this.attacked = 30;
+                this.defense = 50;
+            case "superhuman":
+                this.attacked = 90;
+                this.defense = 90;
+            case "wizard":
+                this.attacked = 50;
+                this.defense = 30;
+        }
         this.name = name;
         this.type = type;
         this.level = 1;
         this.experience = 0;
-        this.attacked = 0;
-        this.defense = 0;
-        this.hitPoints = 0;
+        this.hitPoints = 100;
         this.coordinates = coordinates;
         this.id = nextId();
     }
