@@ -43,7 +43,20 @@ public class Swingy{
                     } catch(Exception e){
                         System.out.print(e);
                     }
-                    //Map m = new Map(1);
+                    Map m = new Map(1);
+                    int i = 0;
+                    int k = 0;
+                    int len = m.mapSize;
+                    int height = m.mapSize;
+                    while(i < height){
+                        while (k < len){
+                            System.out.print(m.getMap()[i][k]);
+                            k++;
+                        }
+                        System.out.print("\n");
+                        i++;
+                        k = 0;
+                    }
                 //} catch(Exception e){
                 //    System.out.print("[ERROR]" + e);
                 //}

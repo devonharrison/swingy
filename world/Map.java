@@ -1,7 +1,7 @@
 package world;
 
 public class Map extends Watcher{
-    protected int mapSize;
+    public  int mapSize;
     private int [][] map;
     public Map(int level){
 
@@ -10,7 +10,13 @@ public class Map extends Watcher{
         for(int i = 0; i < mapSize; i++){
             for(int k = 0; k < this.mapSize; k++){
                 this.map[i][k] = 0;
+                if (i == mapSize/2 && k == mapSize/2){
+                    this.map[i][k] = 1;
+                }
             }
         }
+    }
+    public int [][] getMap(){
+        return(this.map);
     }
 }
