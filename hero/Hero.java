@@ -1,8 +1,10 @@
 package hero;
 
 import world.Coordinates;
+import world.Map;
 
 public class Hero{
+    protected Map m;
     protected String name;
     protected String type;
     protected int level;
@@ -13,7 +15,7 @@ public class Hero{
     protected int id;
     protected Coordinates coordinates;
     private static int idCounter = 1;
-    protected Hero(String name, String type, Coordinates coordinates){
+    protected Hero(String name, String type, Coordinates coordinates, Map m){
         switch(type){
             case "gaurdian":
                 this.attacked = 60;
@@ -35,6 +37,7 @@ public class Hero{
         this.hitPoints = 100;
         this.coordinates = coordinates;
         this.id = nextId();
+        this.m = m;
     }
     private int nextId(){
         return (Hero.idCounter++);

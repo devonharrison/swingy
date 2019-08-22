@@ -19,4 +19,7 @@ public class Map extends Watcher{
     public int [][] getMap(){
         return(this.map);
     }
+    public void updateMap(int [][] newMap){
+        this.map = newMap;
+    }
 }

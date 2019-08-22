@@ -1,6 +1,6 @@
 package hero;
 
 public interface Action{
-    public void updatePostion();
+    public void updatePostion(String move);
     public void birthOfHero();
 }

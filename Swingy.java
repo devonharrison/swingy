@@ -34,29 +34,36 @@ public class Swingy{
                     System.out.println(GREEN + "To begin, create your own hero by selecting one of the following hero types: Guardian, Interlect, SuperHuman, Wizard");
                     System.out.print(WHITE + "Hero type: ");
                     try{
+                            Map m = new Map(1);
                             String type = in.readLine();
                             System.out.println(GREEN + "You need to give your hero a name too, something cool perhaps?");
                             System.out.print(WHITE + "Hero name: ");
                             String name = in.readLine();
-                            Action hero = new Legion().newHero(name, type.toLowerCase(), 5, 5);
+                            Action hero = new Legion().newHero(name, type.toLowerCase(), 5, 5, m);
                             hero.birthOfHero();
+                            for(int i = 0; i < 5; i++){
+                                System.out.println("Where would you like to walk to?");
+                                String move = in.readLine();
+                                hero.updatePostion(move);
+                            }
                     } catch(Exception e){
                         System.out.print(e);
                     }
-                    Map m = new Map(1);
-                    int i = 0;
-                    int k = 0;
-                    int len = m.mapSize;
-                    int height = m.mapSize;
-                    while(i < height){
-                        while (k < len){
-                            System.out.print(m.getMap()[i][k]);
-                            k++;
-                        }
-                        System.out.print("\n");
-                        i++;
-                        k = 0;
-                    }
+                    // Map m = new Map(1);
+                    // int i = 0;
+                    // int k = 0;
+                    // int len = m.mapSize;
+                    // int height = m.mapSize;
+                    // while(i < height){
+                    //     while (k < len){
+                    //         System.out.print(m.getMap()[i][k]);
+                    //         k++;
+                    //     }
+                    //     System.out.print("\n");
+                    //     i++;
+                    //     k = 0;
+                    // }
+                    
                 //} catch(Exception e){
                 //    System.out.print("[ERROR]" + e);
                 //}

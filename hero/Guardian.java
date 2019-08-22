@@ -6,12 +6,13 @@ import java.io.InputStreamReader;
 import hero.Action;
 import hero.Hero;
 import world.Coordinates;
+import world.Map;
 
 public class Guardian extends Hero implements Action{
-    public Guardian(String name, String type, Coordinates coordinates){
-        super(name, type, coordinates);
+    public Guardian(String name, String type, Coordinates coordinates, Map m){
+        super(name, type, coordinates, m);
     }
-    public void updatePostion(){
+    public void updatePostion(String move){
         // BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         // String type = in.readLine();
 
