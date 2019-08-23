@@ -13,5 +13,10 @@ package world;
     public int getLatitude(){
         return(this.latitude);
     }
-
+    public int setLongitude(int longitude){
+        this.longitude = longitude;
+    }
+    public int setLatitude(int latitude){
+        this.latitude = latitude;
+    }
 }

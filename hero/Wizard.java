@@ -16,14 +16,8 @@ public class Wizard extends Hero implements Action{
         String direction = move.toLowerCase();
         switch(direction){
             case "north":
-                this.coordinates = new Coordinates(coordinates.getLongitude() - 1, coordinates.getLatitude());
-                int [][] tmp = this.m.getMap();
-                for (int i = 0; i < this.m.mapSize; i++){
-                    for (int k = 0; k < this.m.mapSize; k++){
-                        System.out.print(tmp[i][k]);
-                    }
-                    System.out.print("\n");
-                }
+                // this.coordinates = new Coordinates(this.coordinates.getLongitude() - 1, this.coordinates.getLatitude());
+                this.coordinates.setLongitude(this.coordinates.getLongitude - 1);
             case "east":
                 this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1);
             case "south":
@@ -31,25 +25,27 @@ public class Wizard extends Hero implements Action{
             case "west":
                 this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() - 1);
         }
-        //changePosition(this.coordinates);
+        this.changePosition(this.coordinates);
     }
     public void birthOfHero(){
         System.out.println("I am here to save you");
         System.out.print(this.name + " " + this.type + " " + this.id + " " + this.attacked + "\n");
     }
 
-    // private void changePosition(Coordinates coordinates){
-    //     int [][] temp = this.getMap();
-    //     for (int i = 0; i < this.mapSize; i++){
-    //         for (int k = 0; k < this.mapSize; k++){
-    //             if (temp[i][k] == 1){
-    //                 temp[i][k] = 0;
-    //             }
-    //             if (i == coordinates.getLongitude() && k == coordinates.getLatitude()){
-    //                 temp[i][k] = 1;
-    //             }
-    //         }   
-    //     }
-    //     this.updateMap(temp);
-    // }
+    private void changePosition(Coordinates coordinates){
+        int [][] temp = this.m.getMap();
+        for (int i = 0; i < this.m.mapSize; i++){
+            for (int k = 0; k < this.m.mapSize; k++){
+                if (temp[i][k] == 1){
+                    temp[i][k] = 0;
+                }
+                if (i == coordinates.getLongitude() && k == coordinates.getLatitude()){
+                    temp[i][k] = 1;
+                }
+                System.out.print(this.m.getMap()[i][k]);
+            }
+            System.out.print("\n");
+        }
+        this.m.updateMap(temp);
+    }
 }
