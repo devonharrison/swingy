@@ -6,6 +6,7 @@ package world;
     public Coordinates(int longitude, int latitude){
         this.longitude = longitude;
         this.latitude = latitude; 
+        System.out.print(this.longitude + "          " + this.latitude + "\n");
     }
     public int getLongitude(){
         return(this.longitude);
@@ -13,10 +14,10 @@ package world;
     public int getLatitude(){
         return(this.latitude);
     }
-    public int setLongitude(int longitude){
+    public void setLongitude(int longitude){
         this.longitude = longitude;
     }
-    public int setLatitude(int latitude){
+    public void setLatitude(int latitude){
         this.latitude = latitude;
     }
 }
