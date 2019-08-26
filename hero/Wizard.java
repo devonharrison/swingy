@@ -16,8 +16,8 @@ public class Wizard extends Hero implements Action{
         String direction = move.toLowerCase();
         switch(direction){
             case "north":
-                this.coordinates = new Coordinates(this.coordinates.getLongitude() - 1, this.coordinates.getLatitude());
-                //this.coordinates.setLongitude(this.coordinates.getLongitude() - 1);
+                //this.coordinates = new Coordinates(this.coordinates.getLongitude() - 1, this.coordinates.getLatitude());
+                this.coordinates.setLongitude(this.coordinates.getLongitude() - 1);
             case "east":
                 this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1);
             case "south":

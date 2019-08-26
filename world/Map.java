@@ -8,7 +8,7 @@ public class Map extends Watcher{
     private Coordinates coordinates;
     public Map(int level){
         this.mapSize = (level - 1) * 5 + 10 - (level % 2);
-        this.coordinates = new Coordinates();
+        this.coordinates = new Coordinates(this.mapSize/2, this.mapSize/2);
         map = new int[mapSize][mapSize];
         for(int i = 0; i < this.mapSize; i++){
             for(int k = 0; k < this.mapSize; k++){
