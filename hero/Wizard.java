@@ -16,21 +16,22 @@ public class Wizard extends Hero implements Action{
         String direction = move.toLowerCase();
         switch(direction){
             case "north":
-                //this.coordinates = new Coordinates(this.coordinates.getLongitude() - 1, this.coordinates.getLatitude());
                 System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
                 this.m.updateMap(this.m.getLongitude() - 1, this.m.getLatitude());
                 break;
             case "east":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() + 1);
                 break;
-                //this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1);
             case "south":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude() + 1, this.m.getLatitude());
                 break;
-                //this.coordinates = new Coordinates(coordinates.getLongitude() + 1, coordinates.getLatitude());
             case "west":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() - 1);
                 break;
-                //this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() - 1);
         }
-        //this.changePosition(this.coordinates);
     }
     public void birthOfHero(){
         System.out.println("I am here to save you");
