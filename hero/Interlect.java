@@ -9,8 +9,8 @@ import world.Coordinates;
 import world.Map;
 
 public class Interlect extends Hero implements Action{
-    Interlect(String name, String type, Coordinates coordinates, Map m){
-        super(name, type, coordinates, m);
+    Interlect(String name, String type, int longitude, int latitude, Map m){
+        super(name, type, longitude, latitude, m);
     }
     public void updatePostion(String move){
         // BufferedReader in = new BufferedReader(new InputStreamReader(System.in));

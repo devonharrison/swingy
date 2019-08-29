@@ -13,9 +13,11 @@ public class Hero{
     protected int defense;
     protected int hitPoints;
     protected int id;
-    protected Coordinates coordinates;
+    protected int longitude;
+    protected int latitude;
     private static int idCounter = 1;
-    protected Hero(String name, String type, Coordinates coordinates, Map m){
+
+    protected Hero(String name, String type, int longitude, int latitude, Map m){
         switch(type){
             case "gaurdian":
                 this.attacked = 60;
@@ -35,9 +37,10 @@ public class Hero{
         this.level = 1;
         this.experience = 0;
         this.hitPoints = 100;
-        this.coordinates = coordinates;
         this.id = nextId();
         this.m = m;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
     private int nextId(){
         return (Hero.idCounter++);
