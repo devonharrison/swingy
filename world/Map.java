@@ -32,6 +32,7 @@ public class Map extends Watcher{
             }
             //System.out.print("\n");
         }
+        this.generateEnemies();
     }
 
     // ####################
@@ -102,7 +103,9 @@ public class Map extends Watcher{
                 if (i == longi && k == lati){
                     this.map[i][k] = 2;
                 }
+                System.out.print(this.map[i][k]);
             }
+            System.out.print("\n");
         }
     }
 
