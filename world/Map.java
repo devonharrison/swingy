@@ -1,6 +1,8 @@
 package world;
 
+import utils.CustomException;
 import world.Coordinates;
+import java.util.Random;
 
 public class Map extends Watcher{
     public  int mapSize;
@@ -76,5 +78,36 @@ public class Map extends Watcher{
     }
     public int getLatitude(){
         return (this.latitude);
+    }
+
+    // ####################
+    // function to check what the player encounters,
+    // if it's an enemy, edge of the map (then they win),
+    // could find artifacts along the way
+    // ####################
+ 
+
+    
+    // ####################
+    // function to randomly generate where enemies and 
+    // artifacts can be found, number of enemies and 
+    // artifacts are based on the mapsize (bigger map == more enemies and artifacts)
+    // ####################
+
+    protected void generateEnemies(){
+        for (int i = 0; i < this.mapSize; i++){
+            int longi = getRandomNum(this.mapSize);
+            int lati = getRandomNum(this.mapSize);
+            for (int k = 0; k < this.mapSize; k++){
+                if (i == longi && k == lati){
+                    this.map[i][k] = 2;
+                }
+            }
+        }
+    }
+
+    protected int getRandomNum(int max){
+        Random r = new Random();
+        return (r.nextInt(max));
     }
 }

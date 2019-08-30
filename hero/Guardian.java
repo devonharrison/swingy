@@ -1,8 +1,5 @@
 package hero;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import hero.Action;
 import hero.Hero;
 import world.Coordinates;
@@ -13,9 +10,25 @@ public class Guardian extends Hero implements Action{
         super(name, type, longitude, latitude, m);
     }
     public void updatePostion(String move){
-        // BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        // String type = in.readLine();
-
+        String direction = move.toLowerCase();
+        switch(direction){
+            case "north":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude() - 1, this.m.getLatitude());
+                break;
+            case "east":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() + 1);
+                break;
+            case "south":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude() + 1, this.m.getLatitude());
+                break;
+            case "west":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() - 1);
+                break;
+        }
     }
     public void birthOfHero(){
         System.out.println("I am here to save you");

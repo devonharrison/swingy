@@ -13,9 +13,25 @@ public class Interlect extends Hero implements Action{
         super(name, type, longitude, latitude, m);
     }
     public void updatePostion(String move){
-        // BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        // String type = in.readLine();
-
+        String direction = move.toLowerCase();
+        switch(direction){
+            case "north":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude() - 1, this.m.getLatitude());
+                break;
+            case "east":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() + 1);
+                break;
+            case "south":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude() + 1, this.m.getLatitude());
+                break;
+            case "west":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() - 1);
+                break;
+        }
     }
     public void birthOfHero(){
         

@@ -38,20 +38,5 @@ public class Wizard extends Hero implements Action{
         System.out.print(this.name + " " + this.type + " " + this.id + " " + this.attacked + "\n");
     }
 
-    // private void changePosition(Coordinates coordinates){
-    //     int [][] temp = this.m.getMap();
-    //     for (int i = 0; i < this.m.mapSize; i++){
-    //         for (int k = 0; k < this.m.mapSize; k++){
-    //             if (temp[i][k] == 1){
-    //                 temp[i][k] = 0;
-    //             }
-    //             if (i == coordinates.getLongitude() && k == coordinates.getLatitude()){
-    //                 temp[i][k] = 1;
-    //             }
-    //             System.out.print(this.m.getMap()[i][k]);
-    //         }
-    //         System.out.print("\n");
-    //     }
-    //     this.m.updateMap(temp);
-    // }
+
 }
