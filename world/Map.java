@@ -31,7 +31,7 @@ public class Map extends Watcher{
             }
         }
         this.generateEnemies();
-        this.generateArtifacts();
+        //this.generateArtifacts();
     }
 
     // ####################
@@ -115,7 +115,7 @@ public class Map extends Watcher{
                 }
                 if (i == this.longitude && k == this.latitude){
                     int r = getRandomNum(4) + 1;
-                    int enemy = getRandomNum(11);
+                    int enemy = getRandomNum(9);
                     this.map[i + r][k] = enemy;
                     this.map[i - r][k] = enemy;
                     this.map[i][k + r] = enemy;
@@ -131,9 +131,8 @@ public class Map extends Watcher{
             int lati = getRandomNum(this.mapSize);
             for (int k = 0; k < this.mapSize; k++){
                 if (i == longi && k == lati){
-                    this.map[i][k] = -1;
-                    int r = getRandomNum(this.mapSize);
-                    this.map[r][r] = -1;
+                    int r = getRandomNum(5) + 1;
+                    this.map[r][k] = 9;
                 }
             }
         }

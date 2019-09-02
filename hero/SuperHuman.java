@@ -37,7 +37,7 @@ public class SuperHuman extends Hero implements Action{
         
     }
 
-    public void checkPosition(){
+    public void checkPosition(String direction){
         
     }
 

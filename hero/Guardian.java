@@ -34,7 +34,7 @@ public class Guardian extends Hero implements Action{
         System.out.println("I am here to save you");
     }
 
-    public void checkPosition(){
+    public void checkPosition(String direction){
         
     }
 }

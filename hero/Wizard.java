@@ -14,6 +14,7 @@ public class Wizard extends Hero implements Action{
     }
     public void updatePostion(String move){
         String direction = move.toLowerCase();
+        this.checkPosition(direction);
         switch(direction){
             case "north":
                 System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
@@ -35,7 +36,7 @@ public class Wizard extends Hero implements Action{
     }
     public void birthOfHero(){
         System.out.println("I am here to save you");
-        System.out.print(this.name + " " + this.type + " " + this.id + " " + this.attacked + "\n");
+        System.out.print(this.name + " " + this.type + " " + this.id + " " + this.attack + "\n");
     }
 
     public void checkPosition(String direction){
@@ -57,19 +58,44 @@ public class Wizard extends Hero implements Action{
                 lati = lati - 1;
                 break;
         }
-        if (tmp[longi][lati] > 0){
-            if (tmp[longi][lat){
-                System.out.println("OH NO! Looks like we have encounted a not so nice guy...");
-                System.out.println("Do we want to fight him with magic or try and get away? (fight/flight)");
+        if (tmp[longi][lati] > 1 && tmp[longi][lati] < 9){
+            System.out.println("OH NO! Looks like we have encounted a not so nice guy...");
+            System.out.println("Do we want to fight him with magic or try and get away? (fight/flight)");
+            try{
                 String action = in.readLine();
                 switch(action.toLowerCase()){
                     case "flight":
+                        System.out.println("You can't lose if you don't fight");
                     case "fight":
+                        System.out.println("Dammit, looks like he is quite the chungy boi...");
+                        System.out.println("Attack: " + tmp[longi][lati] * 5 + "\nDefense: " + tmp[longi][lati] * 10);
+                        String outcome = this.fight(tmp[longi][lati]);
+                        if (outcome == "win"){
+                            this.dropFromVillain(tmp[longi][lati]);
+                            // check what artifact is picked up and adjust hero stats accordingly
+                        }
+                        else{
+                            System.out.println("=============== YOU DIED YOU FOOL ===============");
+                            System.exit(0);
+                        }
                 }
             }
+            catch(Exception e){
+                System.out.print("Error trying to read action: " + e);
+            }
         }
-        else if (tmp[longi][lati] == -1){
-
+        else if (tmp[longi][lati] == 9){
+            System.out.println("I see something shiny, I think we should pick it up and see what it is...\n(pickup/nah)");
+            try{
+                String action = in.readLine();
+                switch(action.toLowerCase()){
+                    case "pickup":
+                    case "nah":
+                }    
+            }
+            catch(Exception e){
+                    System.out.print("Error trying to read action: " + e);
+            }
         }
         else{
 

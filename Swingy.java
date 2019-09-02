@@ -41,7 +41,7 @@ public class Swingy{
                             String name = in.readLine();
                             Action hero = new Legion().newHero(name, type.toLowerCase(), 5, 5, m);
                             hero.birthOfHero();
-                            for(int i = 0; i < 5; i++){
+                            for(int i = 0; i < 20; i++){
                                 System.out.println("Where would you like to walk to?");
                                 String move = in.readLine();
                                 hero.updatePostion(move);
