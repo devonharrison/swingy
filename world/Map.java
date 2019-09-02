@@ -28,11 +28,10 @@ public class Map extends Watcher{
                 else{
                     this.map[i][k] = 0;
                 }
-                //System.out.print(this.map[i][k]);
             }
-            //System.out.print("\n");
         }
         this.generateEnemies();
+        this.generateArtifacts();
     }
 
     // ####################
@@ -41,6 +40,7 @@ public class Map extends Watcher{
     public int [][] getMap(){
         return(this.map);
     }
+
     private void resetMap(){
         int [][] tmp = this.map;
         this.map = new int [this.mapSize][this.mapSize];
@@ -56,19 +56,27 @@ public class Map extends Watcher{
             }
         }
     }
+
     public void updateMap(int longitude, int latitude){
         resetMap();
         this.longitude = longitude;
         this.latitude = latitude; 
-        for(int i = 0; i < this.mapSize; i++){
-            for(int k = 0; k < this.mapSize; k++){
-                if (i == longitude && k == latitude){
-                    this.map[i][k] = 1;
-                }
-                System.out.print(this.map[i][k]);
-            }
-            System.out.print("\n");
+        if (latitude == this.mapSize - 1 || longitude == this.mapSize - 1 || latitude == 0 || longitude == 0){
+            System.out.println("==================== YOU WON ====================");
+            System.exit(0);
         }
+        else{
+            for(int i = 0; i < this.mapSize; i++){
+                for(int k = 0; k < this.mapSize; k++){
+                    if (i == longitude && k == latitude){
+                        this.map[i][k] = 1;
+                    }
+                    System.out.print(this.map[i][k]);
+                }
+                System.out.print("\n");
+            }
+        }
+        
     }
 
     // ####################
@@ -77,13 +85,14 @@ public class Map extends Watcher{
     public int getLongitude(){
         return (this.longitude);
     }
+
     public int getLatitude(){
         return (this.latitude);
     }
 
     // ####################
     // function to check what the player encounters,
-    // if it's an enemy, edge of the map (then they win),
+    // if it's an enemy, edge of the map (then they win),                       !!!!!TODO!!!!
     // could find artifacts along the way
     // ####################
  
@@ -101,11 +110,32 @@ public class Map extends Watcher{
             int lati = getRandomNum(this.mapSize);
             for (int k = 0; k < this.mapSize; k++){
                 if (i == longi && k == lati){
-                    this.map[i][k] = 2;
+                    int enemy = getRandomNum(11);
+                    this.map[i][k] = enemy;
                 }
-                System.out.print(this.map[i][k]);
+                if (i == this.longitude && k == this.latitude){
+                    int r = getRandomNum(4) + 1;
+                    int enemy = getRandomNum(11);
+                    this.map[i + r][k] = enemy;
+                    this.map[i - r][k] = enemy;
+                    this.map[i][k + r] = enemy;
+                    this.map[i][k - r] = enemy;
+                }
             }
-            System.out.print("\n");
+        }
+    }
+
+    protected void generateArtifacts(){
+        for (int i = 0; i < this.mapSize; i++){
+            int longi = getRandomNum(this.mapSize);
+            int lati = getRandomNum(this.mapSize);
+            for (int k = 0; k < this.mapSize; k++){
+                if (i == longi && k == lati){
+                    this.map[i][k] = -1;
+                    int r = getRandomNum(this.mapSize);
+                    this.map[r][r] = -1;
+                }
+            }
         }
     }
 

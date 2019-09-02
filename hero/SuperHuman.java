@@ -36,4 +36,9 @@ public class SuperHuman extends Hero implements Action{
     public void birthOfHero(){
         
     }
+
+    public void checkPosition(){
+        
+    }
+
 }

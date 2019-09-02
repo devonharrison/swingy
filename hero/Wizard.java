@@ -38,5 +38,41 @@ public class Wizard extends Hero implements Action{
         System.out.print(this.name + " " + this.type + " " + this.id + " " + this.attacked + "\n");
     }
 
+    public void checkPosition(String direction){
+        int longi = this.m.getLongitude();
+        int lati = this.m.getLatitude();
+        int [][] tmp = this.m.getMap();
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        switch(direction){
+            case "north":
+                longi = longi - 1;
+                break;
+            case "east":
+                lati = lati + 1;
+                break;
+            case "south":
+                longi = longi + 1;
+                break;
+            case "west":
+                lati = lati - 1;
+                break;
+        }
+        if (tmp[longi][lati] > 0){
+            if (tmp[longi][lat){
+                System.out.println("OH NO! Looks like we have encounted a not so nice guy...");
+                System.out.println("Do we want to fight him with magic or try and get away? (fight/flight)");
+                String action = in.readLine();
+                switch(action.toLowerCase()){
+                    case "flight":
+                    case "fight":
+                }
+            }
+        }
+        else if (tmp[longi][lati] == -1){
 
+        }
+        else{
+
+        }
+    }
 }

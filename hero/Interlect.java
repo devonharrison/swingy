@@ -36,4 +36,8 @@ public class Interlect extends Hero implements Action{
     public void birthOfHero(){
         
     }
+
+    public void checkPosition(){
+        
+    }
 }
