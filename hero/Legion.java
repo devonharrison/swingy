@@ -1,13 +1,10 @@
 package hero;
 
-import world.Coordinates;
 import utils.CustomException;
 import world.Map;
 
 public class Legion{
     public Action newHero(String name, String type, int longitude, int latitude, Map m) throws CustomException{
-        //this map is making it funny , check main vs this class
-        Map map = new Map(1);
         if (type.equals("guardian")){
             return(new Guardian(name, type, longitude, latitude, m));
         }

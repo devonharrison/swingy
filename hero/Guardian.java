@@ -2,7 +2,6 @@ package hero;
 
 import hero.Action;
 import hero.Hero;
-import world.Coordinates;
 import world.Map;
 
 public class Guardian extends Hero implements Action{

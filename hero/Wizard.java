@@ -1,11 +1,7 @@
 package hero;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import hero.Action;
 import hero.Hero;
-import world.Coordinates;
 import world.Map;
 
 public class Wizard extends Hero implements Action{
@@ -36,14 +32,13 @@ public class Wizard extends Hero implements Action{
     }
     public void birthOfHero(){
         System.out.println("I am here to save you");
-        System.out.print(this.name + " " + this.type + " " + this.id + " " + this.attack + "\n");
     }
 
     public void checkPosition(String direction){
+
         int longi = this.m.getLongitude();
         int lati = this.m.getLatitude();
         int [][] tmp = this.m.getMap();
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         switch(direction){
             case "north":
                 longi = longi - 1;
@@ -59,46 +54,12 @@ public class Wizard extends Hero implements Action{
                 break;
         }
         if (tmp[longi][lati] > 1 && tmp[longi][lati] < 9){
-            System.out.println("OH NO! Looks like we have encounted a not so nice guy...");
-            System.out.println("Do we want to fight him with magic or try and get away? (fight/flight)");
-            try{
-                String action = in.readLine();
-                switch(action.toLowerCase()){
-                    case "flight":
-                        System.out.println("You can't lose if you don't fight");
-                    case "fight":
-                        System.out.println("Dammit, looks like he is quite the chungy boi...");
-                        System.out.println("Attack: " + tmp[longi][lati] * 5 + "\nDefense: " + tmp[longi][lati] * 10);
-                        String outcome = this.fight(tmp[longi][lati]);
-                        if (outcome == "win"){
-                            this.dropFromVillain(tmp[longi][lati]);
-                            // check what artifact is picked up and adjust hero stats accordingly
-                        }
-                        else{
-                            System.out.println("=============== YOU DIED YOU FOOL ===============");
-                            System.exit(0);
-                        }
-                }
-            }
-            catch(Exception e){
-                System.out.print("Error trying to read action: " + e);
-            }
-        }
-        else if (tmp[longi][lati] == 9){
-            System.out.println("I see something shiny, I think we should pick it up and see what it is...\n(pickup/nah)");
-            try{
-                String action = in.readLine();
-                switch(action.toLowerCase()){
-                    case "pickup":
-                    case "nah":
-                }    
-            }
-            catch(Exception e){
-                    System.out.print("Error trying to read action: " + e);
-            }
+            System.out.println("OH NO! Looks like we have encounted a not so nice guy...\nNothing a little magic can't take care off");
+            this.viewStats();
+            this.fightHandler(direction);
         }
         else{
-
+            System.out.println("I don't see anything to the " + direction);
         }
     }
 }

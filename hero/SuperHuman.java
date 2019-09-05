@@ -1,11 +1,7 @@
 package hero;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import hero.Action;
 import hero.Hero;
-import world.Coordinates;
 import world.Map;
 
 public class SuperHuman extends Hero implements Action{
@@ -40,5 +36,4 @@ public class SuperHuman extends Hero implements Action{
     public void checkPosition(String direction){
         
     }
-
 }

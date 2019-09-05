@@ -1,7 +1,5 @@
 package world;
 
-import utils.CustomException;
-import world.Coordinates;
 import java.util.Random;
 
 public class Map extends Watcher{
@@ -31,7 +29,6 @@ public class Map extends Watcher{
             }
         }
         this.generateEnemies();
-        //this.generateArtifacts();
     }
 
     // ####################
@@ -61,7 +58,7 @@ public class Map extends Watcher{
         resetMap();
         this.longitude = longitude;
         this.latitude = latitude; 
-        if (latitude == this.mapSize - 1 || longitude == this.mapSize - 1 || latitude == 0 || longitude == 0){
+        if ((latitude == this.mapSize - 1 || longitude == this.mapSize - 1 || latitude == 0 || longitude == 0) && this.map[this.longitude][this.latitude] == 0){
             System.out.println("==================== YOU WON ====================");
             System.exit(0);
         }
@@ -91,14 +88,6 @@ public class Map extends Watcher{
     }
 
     // ####################
-    // function to check what the player encounters,
-    // if it's an enemy, edge of the map (then they win),                       !!!!!TODO!!!!
-    // could find artifacts along the way
-    // ####################
- 
-
-    
-    // ####################
     // function to randomly generate where enemies and 
     // artifacts can be found, number of enemies and 
     // artifacts are based on the mapsize (bigger map == more enemies and artifacts)
@@ -114,29 +103,15 @@ public class Map extends Watcher{
                     this.map[i][k] = enemy;
                 }
                 if (i == this.longitude && k == this.latitude){
-                    int r = getRandomNum(4) + 1;
+                    int r = getRandomNum(this.mapSize);
                     int enemy = getRandomNum(9);
-                    this.map[i + r][k] = enemy;
-                    this.map[i - r][k] = enemy;
-                    this.map[i][k + r] = enemy;
-                    this.map[i][k - r] = enemy;
+                    this.map[r][k] = enemy;
+                    this.map[i][r] = enemy;
                 }
             }
         }
     }
 
-    protected void generateArtifacts(){
-        for (int i = 0; i < this.mapSize; i++){
-            int longi = getRandomNum(this.mapSize);
-            int lati = getRandomNum(this.mapSize);
-            for (int k = 0; k < this.mapSize; k++){
-                if (i == longi && k == lati){
-                    int r = getRandomNum(5) + 1;
-                    this.map[r][k] = 9;
-                }
-            }
-        }
-    }
 
     protected int getRandomNum(int max){
         Random r = new Random();
