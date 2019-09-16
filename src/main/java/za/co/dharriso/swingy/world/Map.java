@@ -58,11 +58,12 @@ public class Map{
         resetMap();
         this.longitude = longitude;
         this.latitude = latitude; 
-        if ((latitude == this.mapSize - 1 || longitude == this.mapSize - 1 || latitude == 0 || longitude == 0) && this.map[this.longitude][this.latitude] == 0){
-            System.out.println("==================== YOU WON ====================");
-            System.exit(0);
-        }
-        else{
+        // if ((latitude == this.mapSize - 1 || longitude == this.mapSize - 1 || latitude == 0 || longitude == 0) && this.map[this.longitude][this.latitude] == 0){
+        //     System.out.println("==================== YOU WON ====================");
+            
+        //     System.exit(0);
+        // }
+        //else{
             for(int i = 0; i < this.mapSize; i++){
                 for(int k = 0; k < this.mapSize; k++){
                     if (i == longitude && k == latitude){
@@ -72,7 +73,7 @@ public class Map{
                 }
                 System.out.print("\n");
             }
-        }
+        //}
         
     }
 

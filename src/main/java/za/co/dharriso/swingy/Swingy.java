@@ -49,6 +49,7 @@ public class Swingy{
                         run = hero.updatePostion(move);
                         if (run == 1){
                             System.out.println("==================== YOU WON ====================");
+                            System.exit(0);
                         }
                     }
                 } catch(Exception e){

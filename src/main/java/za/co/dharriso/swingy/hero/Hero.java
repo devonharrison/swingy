@@ -150,6 +150,7 @@ public class Hero{
                             System.out.print("He dropped a " + this.dropFromVillain(tmp[longi][lati]) + "!\n");
                             System.out.println("I think we should pick it up? (pickup/nah)");
                             action = in.readLine();
+                            updateExperience(tmp[longi][lati]);
                             if (action.toLowerCase().equals("pickup")){
                                 heroStatsChange(this.dropFromVillain(tmp[longi][lati]));
                             }
@@ -181,4 +182,31 @@ public class Hero{
                 break;
         }
     }
+
+    public void updateExperience(int enemy){
+        if (enemy > 1 && enemy < 10){
+            this.experience = this.experience + (enemy * 30);
+        }
+        else{
+            this.experience = this.experience + 100;
+        }
+        switch(this.experience){
+            case 1000:
+                this.level++;
+                break;
+            case 2450:
+                this.level++;
+                break;
+            case 4800:
+                this.level++;
+                break;
+            case 8050:
+                this.level++;
+                break;
+            case 12200:
+                this.level++;
+                break;
+        }
+    }
+
 }

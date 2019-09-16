@@ -1,21 +1,35 @@
-// package utils;
+package za.co.dharriso.swingy.utils;
 
-// import java.sql.Connection;
-// import java.sql.DriverManager;
+import java.sql.*;
 
-// public class DataBaseConnect {
-//    public static void main(String args[]) {
-//       Connection c = null;
-//       try {
-//          Class.forName("org.postgresql.Driver");
-//          c = DriverManager
-//             .getConnection("jdbc:postgresql://localhost:5432/testdb",
-//             "postgres", "123");
-//       } catch (Exception e) {
-//          e.printStackTrace();
-//          System.err.println(e.getClass().getName()+": "+e.getMessage());
-//          System.exit(0);
-//       }
-//       System.out.println("Opened database successfully");
-//    }
+public class DataBaseConnect{
+    private Connection conn;
+
+    public DataBaseConnect(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "password");
+
+        } catch(Exception e){
+            System.out.println("Error trying to connect to database: " + e);
+        }
+    }
+
+//     private void createDB(){
+//         String createTable = "CREATE DATABASE IF [IF NOT EXISTS] swingy";
+//     }
 // }
+
+//     private void createTable(){
+//         // String query = "Create DATABASE IF NOT EXISTS swingy()";
+//         String createTable = "CREATE TABLE IF NOT EXIST swingy.hero" +
+// 				"(id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY , " +
+// 				"attack INTEGER(11) NOT NULL , " +
+// 				"defense INTEGER(11) NOT NULL ," +
+// 				"hp INTEGER(11) NOT NULL ," +
+// 				"lvl INTEGER(11) NOT NULL ," +
+// 				"xp INTEGER(11) NOT NULL ," +
+// 				"name VARCHAR(50) NOT NULL ," +
+// 				"type VARCHAR(50) NOT NULL) ,";
+//     }
+}

@@ -28,6 +28,7 @@ public class Wizard extends Hero implements Action{
                 break;
         }
         if (this.m.getLongitude() == 0 || this.m.getLongitude() == this.m.mapSize - 1 || this.m.getLatitude() == 0 || this.m.getLatitude() == this.m.mapSize - 1){
+            this.updateExperience(this.m.getMap()[this.m.getLongitude()][this.m.getLatitude()]);
             return (1);
         }
         else {
