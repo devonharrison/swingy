@@ -57,7 +57,7 @@ public class Swingy{
                 }
             }
             if (gameType.equals("gui")){
-                new Display("TEST", 500, 500);
+                new StartGameForm();
             }
         }
     }

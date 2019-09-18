@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class DataBaseConnect{
     private Connection conn;
+    private Statement statement;
 
     public DataBaseConnect(){
         try{
@@ -13,12 +14,19 @@ public class DataBaseConnect{
         } catch(Exception e){
             System.out.println("Error trying to connect to database: " + e);
         }
+        createDB();
     }
 
-//     private void createDB(){
-//         String createTable = "CREATE DATABASE IF [IF NOT EXISTS] swingy";
-//     }
-// }
+    private void createDB(){
+        String createTable = "CREATE DATABASE IF [IF NOT EXISTS] swingy";
+        try{
+            statement = conn.createStatement();
+            statement.executeUpdate(createTable);
+        } catch(Exception e){
+            System.out.println("Error creating database: " + e);
+        }
+    }
+}
 
 //     private void createTable(){
 //         // String query = "Create DATABASE IF NOT EXISTS swingy()";
@@ -32,4 +40,3 @@ public class DataBaseConnect{
 // 				"name VARCHAR(50) NOT NULL ," +
 // 				"type VARCHAR(50) NOT NULL) ,";
 //     }
-}
