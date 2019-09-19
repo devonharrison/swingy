@@ -57,7 +57,9 @@ public class Swingy{
                 }
             }
             if (gameType.equals("gui")){
-                new StartGameForm();
+                StartGameForm sg = new StartGameForm();
+                sg.setVisible(true);
+                sg.setLocationRelativeTo(null);
             }
         }
     }
