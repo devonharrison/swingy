@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import za.co.dharriso.swingy.hero.*;
-import za.co.dharriso.swingy.display.*;
+import za.co.dharriso.swingy.display.GamePlayForm;
+import za.co.dharriso.swingy.display.StartGameForm;
 import za.co.dharriso.swingy.world.*;
 
 public class Swingy{
@@ -57,9 +58,12 @@ public class Swingy{
                 }
             }
             if (gameType.equals("gui")){
+                // GamePlayForm sg = new GamePlayForm();
+                // sg.setVisible(true);
+                // sg.setLocationRelativeTo(null);
                 StartGameForm sg = new StartGameForm();
                 sg.setVisible(true);
-                //sg.setLocationRelativeTo(null);
+                sg.setLocationRelativeTo(null);
             }
         }
     }
