@@ -27,7 +27,7 @@ public class GamePlayForm extends javax.swing.JFrame {
         loadHeroPanel.setVisible(false);
         navigateMapPanel.setVisible(false);
         noDropPanel.setVisible(false);
-        winPanel.setVisible(false);
+        heroCreatedPanel.setVisible(false);
     }
 
     /**
@@ -71,10 +71,6 @@ public class GamePlayForm extends javax.swing.JFrame {
         noDropPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        winPanel = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        losePanel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         decideToFightPanel = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -86,6 +82,16 @@ public class GamePlayForm extends javax.swing.JFrame {
         dropPanel1 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        heroCreatedPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        continueButton = new javax.swing.JButton();
+        displayHeroNameLabel = new javax.swing.JLabel();
+        displayHeroTypeLabel = new javax.swing.JLabel();
+        displayHeroAttackLabel = new javax.swing.JLabel();
+        displayHeroDefenseLabel = new javax.swing.JLabel();
+        displayHeroLevelLabel = new javax.swing.JLabel();
+        displayHeroXpLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -242,7 +248,7 @@ public class GamePlayForm extends javax.swing.JFrame {
                 .addComponent(eastButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(southButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(westButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
@@ -404,7 +410,7 @@ public class GamePlayForm extends javax.swing.JFrame {
             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, noDropPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         noDropPanelLayout.setVerticalGroup(
@@ -415,62 +421,6 @@ public class GamePlayForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(419, Short.MAX_VALUE))
-        );
-
-        winPanel.setBackground(new java.awt.Color(36, 37, 42));
-
-        jLabel8.setFont(new java.awt.Font("Gang of Three", 0, 48)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(226, 106, 106));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Just swingy");
-
-        javax.swing.GroupLayout winPanelLayout = new javax.swing.GroupLayout(winPanel);
-        winPanel.setLayout(winPanelLayout);
-        winPanelLayout.setHorizontalGroup(
-            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
-            .addGroup(winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(winPanelLayout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(12, 12, 12)))
-        );
-        winPanelLayout.setVerticalGroup(
-            winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
-            .addGroup(winPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(winPanelLayout.createSequentialGroup()
-                    .addGap(230, 230, 230)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(231, Short.MAX_VALUE)))
-        );
-
-        losePanel.setBackground(new java.awt.Color(36, 37, 42));
-
-        jLabel9.setFont(new java.awt.Font("Gang of Three", 0, 48)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(226, 106, 106));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Just swingy");
-
-        javax.swing.GroupLayout losePanelLayout = new javax.swing.GroupLayout(losePanel);
-        losePanel.setLayout(losePanelLayout);
-        losePanelLayout.setHorizontalGroup(
-            losePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
-            .addGroup(losePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(losePanelLayout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(12, 12, 12)))
-        );
-        losePanelLayout.setVerticalGroup(
-            losePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
-            .addGroup(losePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(losePanelLayout.createSequentialGroup()
-                    .addGap(230, 230, 230)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(231, Short.MAX_VALUE)))
         );
 
         decideToFightPanel.setBackground(new java.awt.Color(36, 37, 42));
@@ -585,6 +535,97 @@ public class GamePlayForm extends javax.swing.JFrame {
                 .addContainerGap(395, Short.MAX_VALUE))
         );
 
+        heroCreatedPanel.setBackground(new java.awt.Color(36, 37, 42));
+        heroCreatedPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                heroCreatedPanelMousePressed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Gang of Three", 0, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(226, 106, 106));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Just swingy");
+
+        jLabel15.setFont(new java.awt.Font("Gang of Three", 0, 16)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(226, 106, 106));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("- Hero stats -");
+
+        continueButton.setFont(new java.awt.Font("Gang of Three", 0, 24)); // NOI18N
+        continueButton.setForeground(new java.awt.Color(226, 106, 106));
+        continueButton.setText("continue");
+        continueButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                continueButtonMousePressed(evt);
+            }
+        });
+        continueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continueButtonActionPerformed(evt);
+            }
+        });
+
+        displayHeroNameLabel.setFont(new java.awt.Font("Gang of Three", 0, 18)); // NOI18N
+        displayHeroNameLabel.setForeground(new java.awt.Color(226, 106, 106));
+
+        displayHeroTypeLabel.setFont(new java.awt.Font("Gang of Three", 0, 18)); // NOI18N
+        displayHeroTypeLabel.setForeground(new java.awt.Color(226, 106, 106));
+
+        displayHeroAttackLabel.setFont(new java.awt.Font("Gang of Three", 0, 18)); // NOI18N
+        displayHeroAttackLabel.setForeground(new java.awt.Color(226, 106, 106));
+
+        displayHeroDefenseLabel.setFont(new java.awt.Font("Gang of Three", 0, 18)); // NOI18N
+        displayHeroDefenseLabel.setForeground(new java.awt.Color(226, 106, 106));
+
+        displayHeroLevelLabel.setFont(new java.awt.Font("Gang of Three", 0, 18)); // NOI18N
+        displayHeroLevelLabel.setForeground(new java.awt.Color(226, 106, 106));
+
+        displayHeroXpLabel1.setFont(new java.awt.Font("Gang of Three", 0, 18)); // NOI18N
+        displayHeroXpLabel1.setForeground(new java.awt.Color(226, 106, 106));
+
+        javax.swing.GroupLayout heroCreatedPanelLayout = new javax.swing.GroupLayout(heroCreatedPanel);
+        heroCreatedPanel.setLayout(heroCreatedPanelLayout);
+        heroCreatedPanelLayout.setHorizontalGroup(
+            heroCreatedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(heroCreatedPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(heroCreatedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(displayHeroNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addComponent(continueButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(displayHeroTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(displayHeroAttackLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(displayHeroDefenseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(displayHeroLevelLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(displayHeroXpLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        heroCreatedPanelLayout.setVerticalGroup(
+            heroCreatedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(heroCreatedPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayHeroNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayHeroTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayHeroAttackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayHeroDefenseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayHeroLevelLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayHeroXpLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(continueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -599,10 +640,6 @@ public class GamePlayForm extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(noDropPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(winPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(losePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(decideToFightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -612,12 +649,19 @@ public class GamePlayForm extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(dropPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(heroCreatedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(startGamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(navigateMapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(navigateMapPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 24, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(createHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -625,10 +669,6 @@ public class GamePlayForm extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(noDropPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(winPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(losePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(decideToFightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -637,6 +677,11 @@ public class GamePlayForm extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(dropPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(heroCreatedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -675,38 +720,19 @@ public class GamePlayForm extends javax.swing.JFrame {
     private void createHeroButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createHeroButtonMousePressed
         String heroName = heroNameTextField.getText();
         Map m = new Map(1);
+        String heroType = "";
         if(heroName.length() > 0){
             if (wizardRadioButton.isSelected() == true){
-                try{
-                    Action hero = new Legion().newHero(heroName, "wizard", 5, 5, m);
-                }
-                catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Error creating hero: " + e, "Error", JOptionPane.ERROR_MESSAGE);
-                }
+                heroType = "wizard";
             }
             else if(interlectRadioButton.isSelected() == true){
-                try{
-                    Action hero = new Legion().newHero(heroName, "interlect", 5, 5, m);
-                }
-                catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Error creating hero: " + e, "Error", JOptionPane.ERROR_MESSAGE);
-                }
+                heroType = "interlect";
             }
             else if(superhumanRadioButton.isSelected() == true){
-                try{
-                    Action hero = new Legion().newHero(heroName, "superhuman", 5, 5, m);
-                }
-                catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Error creating hero: " + e, "Error", JOptionPane.ERROR_MESSAGE);
-                }
+                heroType = "superhuman";
             }
             else if(gaurdianRadioButton.isSelected() == true){
-                try{
-                    Action hero = new Legion().newHero(heroName, "guardian", 5, 5, m);
-                }
-                catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Error creating hero: " + e, "Error", JOptionPane.ERROR_MESSAGE);
-                }
+                heroType = "guardian";
             }
             else{
                 JOptionPane.showMessageDialog(null, "No hero type selected", "Error", JOptionPane.ERROR_MESSAGE);
@@ -714,6 +740,18 @@ public class GamePlayForm extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(null, "No hero name given", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (heroType.length() > 0 && heroName.length() > 0){
+            try{
+                Action hero = new Legion().newHero(heroName, heroType, 5, 5, m);
+                setHeroStatsLabel(heroName, heroType);
+                heroCreatedPanel.setVisible(true);
+                createHeroPanel.setVisible(false);
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error creating hero: " + e, "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_createHeroButtonMousePressed
@@ -726,6 +764,51 @@ public class GamePlayForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_runButtonMousePressed
 
+    private void continueButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continueButtonMousePressed
+        heroCreatedPanel.setVisible(false);
+        navigateMapPanel.setVisible(true);
+    }//GEN-LAST:event_continueButtonMousePressed
+
+    private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_continueButtonActionPerformed
+
+    private void heroCreatedPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_heroCreatedPanelMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heroCreatedPanelMousePressed
+
+    private void setHeroStatsLabel(String name, String type){
+        int attack = 0;
+        int defense = 0;
+        int level = 1;
+        int xp = 0;
+
+        switch(type){
+            case "guardian":
+                attack = 60;
+                defense = 20;
+                break;
+            case "interlect":
+                attack = 30;
+                defense = 50;
+                break;
+            case "superhuman":
+                attack = 90;
+                defense = 90;
+                break;
+            case "wizard":
+                attack = 100;
+                defense = 100;
+                break;
+        }
+        
+        displayHeroNameLabel.setText("Name: " + name);
+        displayHeroTypeLabel.setText("Type: " + type);
+        displayHeroAttackLabel.setText("Attack: " + Integer.toString(attack));
+        displayHeroDefenseLabel.setText("Defense: " + Integer.toString(defense));
+        displayHeroLevelLabel.setText("Level: " + Integer.toString(level));
+        displayHeroXpLabel1.setText("Experience: " + Integer.toString(xp));
+    }
     /**
      * @param args the command line arguments
      */
@@ -763,13 +846,21 @@ public class GamePlayForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutButton;
+    private javax.swing.JButton continueButton;
     private javax.swing.JButton createHeroButton;
     private javax.swing.JPanel createHeroPanel;
     private javax.swing.JPanel decideToFightPanel;
+    private javax.swing.JLabel displayHeroAttackLabel;
+    private javax.swing.JLabel displayHeroDefenseLabel;
+    private javax.swing.JLabel displayHeroLevelLabel;
+    private javax.swing.JLabel displayHeroNameLabel;
+    private javax.swing.JLabel displayHeroTypeLabel;
+    private javax.swing.JLabel displayHeroXpLabel1;
     private javax.swing.JPanel dropPanel1;
     private javax.swing.JButton eastButton;
     private javax.swing.JButton fightButton;
     private javax.swing.JRadioButton gaurdianRadioButton;
+    private javax.swing.JPanel heroCreatedPanel;
     private javax.swing.JTextField heroNameTextField;
     private javax.swing.ButtonGroup heroTypeButtonGroup;
     private javax.swing.JRadioButton interlectRadioButton;
@@ -779,6 +870,7 @@ public class GamePlayForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -792,36 +884,10 @@ public class GamePlayForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    // private javax.swing.JPanel jPanel10;
-    // private javax.swing.JPanel jPanel11;
-    // private javax.swing.JPanel jPanel12;
-    // private javax.swing.JPanel jPanel13;
-    // private javax.swing.JPanel jPanel14;
-    // private javax.swing.JPanel jPanel15;
-    // private javax.swing.JPanel jPanel16;
-    // private javax.swing.JPanel jPanel17;
-    // private javax.swing.JPanel jPanel18;
-    // private javax.swing.JPanel jPanel2;
-    // private javax.swing.JPanel jPanel3;
-    // private javax.swing.JPanel jPanel4;
-    // private javax.swing.JPanel jPanel6;
-    // private javax.swing.JPanel jPanel7;
-    // private javax.swing.JPanel jPanel8;
-    // private javax.swing.JPanel jPanel9;
     private javax.swing.JButton loadHeroButton;
     private javax.swing.JPanel loadHeroPanel;
-    private javax.swing.JPanel losePanel;
-    // private javax.swing.JPanel losePanel1;
-    // private javax.swing.JPanel losePanel2;
-    // private javax.swing.JPanel losePanel3;
-    // private javax.swing.JPanel losePanel4;
-    // private javax.swing.JPanel losePanel5;
-    // private javax.swing.JPanel losePanel6;
-    // private javax.swing.JPanel losePanel7;
-    // private javax.swing.JPanel losePanel8;
     private javax.swing.JPanel navigateMapPanel;
     private javax.swing.JButton newHeroButton;
     private javax.swing.JPanel noDropPanel;
@@ -829,14 +895,8 @@ public class GamePlayForm extends javax.swing.JFrame {
     private javax.swing.JButton runButton;
     private javax.swing.JButton southButton;
     private javax.swing.JPanel startGamePanel;
-    // private javax.swing.JPanel startGamePanel2;
-    // private javax.swing.JPanel startGamePanel3;
-    // private javax.swing.JPanel startGamePanel4;
-    // private javax.swing.JPanel startGamePanel5;
-    // private javax.swing.JPanel startGamePanel6;
     private javax.swing.JRadioButton superhumanRadioButton;
     private javax.swing.JButton westButton;
-    private javax.swing.JPanel winPanel;
     private javax.swing.JRadioButton wizardRadioButton;
     // End of variables declaration//GEN-END:variables
 }

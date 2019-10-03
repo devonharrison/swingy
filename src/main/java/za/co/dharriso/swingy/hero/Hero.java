@@ -208,5 +208,31 @@ public class Hero{
                 break;
         }
     }
+    public int getAttack(){
+        return this.attack;
+    }
 
+    public int getDefense(){
+        return this.defense;
+    }
+
+    public int getXp(){
+        return this.experience;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getType(){
+        return this.type;
+    }
+
+    public int getLevel(){
+        return this.level;
+    }
+
+    public int getHitpoints(){
+        return this.hitPoints;
+    }
 }
