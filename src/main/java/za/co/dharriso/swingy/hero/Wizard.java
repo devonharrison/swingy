@@ -3,6 +3,10 @@ package za.co.dharriso.swingy.hero;
 import za.co.dharriso.swingy.world.Map;
 
 public class Wizard extends Hero implements Action{
+
+    public int checkPosition;
+    public int view;
+
     Wizard(String name, String type, int longitude, int latitude, Map m){
         super(name, type, longitude, latitude, m);
     }
@@ -40,7 +44,6 @@ public class Wizard extends Hero implements Action{
     }
 
     public void checkPosition(String direction){
-
         int longi = this.m.getLongitude();
         int lati = this.m.getLatitude();
         int [][] tmp = this.m.getMap();
@@ -60,11 +63,15 @@ public class Wizard extends Hero implements Action{
         }
         if (tmp[longi][lati] > 1 && tmp[longi][lati] < 9){
             System.out.println("OH NO! Looks like we have encounted a not so nice guy...\nNothing a little magic can't take care off");
-            this.viewStats();
+            checkPosition = 1;
+            view = this.viewStats();
+            // gui gets stuck here because it's waiting for a console input to continue
+            // refactor fightHandler()
             this.fightHandler(direction);
         }
         else{
             System.out.println("I don't see anything to the " + direction);
+            checkPosition = 0;
         }
     }
 }

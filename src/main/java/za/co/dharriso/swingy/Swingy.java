@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import za.co.dharriso.swingy.hero.*;
 import za.co.dharriso.swingy.views.GamePlayForm;
 import za.co.dharriso.swingy.world.*;
+import za.co.dharriso.swingy.utils.*;
 
 public class Swingy{
     public static final String BLACK = "\u001B[30m";
@@ -16,6 +17,8 @@ public class Swingy{
     public static final String PURPLE = "\u001B[35m";
     public static final String CYAN = "\u001B[36m";
     public static final String WHITE = "\u001B[37m";
+
+    public static String gameType;
 
     public static void main(String [] args) throws IOException{
         int argc = args.length;
@@ -28,7 +31,8 @@ public class Swingy{
             }
         }
         else{
-            String gameType = args[0].toLowerCase();
+            gameType = args[0].toLowerCase();
+            new GameType(gameType);
             if (gameType.equals("console")){
                 BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
                 System.out.println(CYAN + "Welcome to Swingy in its console form !");

@@ -1,5 +1,6 @@
 package za.co.dharriso.swingy.hero;
 
+import za.co.dharriso.swingy.utils.GameType;
 import za.co.dharriso.swingy.world.Map;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -17,6 +18,8 @@ public class Hero{
     protected int longitude;
     protected int latitude;
     private static int idCounter = 1;
+
+    public String outcome;
 
     protected Hero(String name, String type, int longitude, int latitude, Map m){
         switch(type){
@@ -95,9 +98,14 @@ public class Hero{
         return (outcome);
     }
 
-    protected void viewStats(){
+    protected int viewStats(){
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Would you like to view your stats before choosing? (yes/no)");
+        int ret = 0;
+        if (GameType.gameType.equals("gui")){
+            ret = 1;
+        }
+        else{
+            System.out.println("Would you like to view your stats before choosing? (yes/no)");
             try{
                 String viewStats = in.readLine().toLowerCase();
                 switch(viewStats){
@@ -105,15 +113,18 @@ public class Hero{
                         System.out.println("ATTACK: " + this.attack);
                         System.out.println("DEFENSE: " + this.defense);
                         System.out.println("HITPOINTS: " + this.hitPoints);
+                        ret = 1;
                         break;
                     case "no":
+                        ret = 0;
                         System.out.println("I see, element of surprise");
                 }
-
             }
             catch(Exception e){
                 System.out.println("Error reading input: " + e);
             }
+        }
+        return (ret);
     }
 
     protected void fightHandler(String direction){
@@ -137,33 +148,39 @@ public class Hero{
         }
         System.out.println("Do we want to fight him with magic or try and get away? (fight/flight)");
             try{
-                String action = in.readLine();
-                switch(action.toLowerCase()){
-                    case "flight":
-                        System.out.println("You can't lose if you don't fight");
-                        break;
-                    case "fight":
-                        System.out.println("Dammit, looks like he is quite the chunky boi...");
-                        System.out.println("Attack: " + tmp[longi][lati] * 5 + "\nDefense: " + tmp[longi][lati] * 10);
-                        String outcome = this.fight(tmp[longi][lati]);
-                        if (outcome == "win"){
-                            System.out.print("He dropped a " + this.dropFromVillain(tmp[longi][lati]) + "!\n");
-                            System.out.println("I think we should pick it up? (pickup/nah)");
-                            action = in.readLine();
-                            updateExperience(tmp[longi][lati]);
-                            if (action.toLowerCase().equals("pickup")){
-                                heroStatsChange(this.dropFromVillain(tmp[longi][lati]));
+                if (GameType.gameType.equals("console")){
+                    String action = in.readLine();
+                    switch(action.toLowerCase()){
+                        case "flight":
+                            System.out.println("You can't lose if you don't fight");
+                            break;
+                        case "fight":
+                            System.out.println("Dammit, looks like he is quite the chunky boi...");
+                            System.out.println("Attack: " + tmp[longi][lati] * 5 + "\nDefense: " + tmp[longi][lati] * 10);
+                            outcome = this.fight(tmp[longi][lati]);
+                            if (outcome == "win"){
+                                System.out.print("He dropped a " + this.dropFromVillain(tmp[longi][lati]) + "!\n");
+                                System.out.println("I think we should pick it up? (pickup/nah)");
+                                action = in.readLine();
+                                updateExperience(tmp[longi][lati]);
+                                if (action.toLowerCase().equals("pickup")){
+                                    heroStatsChange(this.dropFromVillain(tmp[longi][lati]));
+                                }
+                                else{
+                                    System.out.println("I guess we don't need it");
+                                }
                             }
                             else{
-                                System.out.println("I guess we don't need it");
+                                System.out.println("=============== YOU DIED YOU FOOL ===============");
+                                System.exit(0);
                             }
-                        }
-                        else{
-                            System.out.println("=============== YOU DIED YOU FOOL ===============");
-                            System.exit(0);
-                        }
-                        break;
+                            break;
+                    }
                 }
+                else{
+                    
+                }
+
             }
             catch(Exception e){
                 System.out.print("Error trying to read action: " + e);
@@ -208,31 +225,5 @@ public class Hero{
                 break;
         }
     }
-    public int getAttack(){
-        return this.attack;
-    }
 
-    public int getDefense(){
-        return this.defense;
-    }
-
-    public int getXp(){
-        return this.experience;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public String getType(){
-        return this.type;
-    }
-
-    public int getLevel(){
-        return this.level;
-    }
-
-    public int getHitpoints(){
-        return this.hitPoints;
-    }
 }

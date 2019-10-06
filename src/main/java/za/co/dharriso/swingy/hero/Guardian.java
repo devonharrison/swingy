@@ -3,11 +3,16 @@ package za.co.dharriso.swingy.hero;
 import za.co.dharriso.swingy.world.Map;
 
 public class Guardian extends Hero implements Action{
+
+    public int checkPosition;
+    public int view;
+
     public Guardian(String name, String type, int longitude, int latitude, Map m){
         super(name, type, longitude, latitude, m);
     }
     public int updatePostion(String move){
         String direction = move.toLowerCase();
+        this.checkPosition(direction);
         switch(direction){
             case "north":
                 System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
@@ -59,11 +64,16 @@ public class Guardian extends Hero implements Action{
         }
         if (tmp[longi][lati] > 1 && tmp[longi][lati] < 9){
             System.out.println("OH NO! Looks like we have encounted a not so nice guy...\nSHIELD SHEILD SHEILD");
-            this.viewStats();
+            view = this.viewStats();
+            // gui gets stuck here because it's waiting for a console input to continue
+            // refactor fightHandler()
             this.fightHandler(direction);
+            checkPosition = 1;
         }
         else{
             System.out.println("I don't see anything to the " + direction);
+            checkPosition = 0;
         }
     }
+    
 }
