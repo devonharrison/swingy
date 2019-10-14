@@ -1,5 +1,6 @@
 package za.co.dharriso.swingy.hero;
 
+import za.co.dharriso.swingy.utils.GameType;
 import za.co.dharriso.swingy.world.Map;
 
 public class Wizard extends Hero implements Action{
@@ -12,7 +13,9 @@ public class Wizard extends Hero implements Action{
     }
     public int updatePostion(String move){
         String direction = move.toLowerCase();
-        this.checkPosition(direction);
+        if (GameType.gameType.equals("console")){
+            this.checkPosition(direction);
+        }
         switch(direction){
             case "north":
                 System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
@@ -43,35 +46,62 @@ public class Wizard extends Hero implements Action{
         System.out.println("I am here to save you");
     }
 
-    public void checkPosition(String direction){
+    public int checkPosition(String direction){
         int longi = this.m.getLongitude();
         int lati = this.m.getLatitude();
         int [][] tmp = this.m.getMap();
-        switch(direction){
-            case "north":
-                longi = longi - 1;
-                break;
-            case "east":
-                lati = lati + 1;
-                break;
-            case "south":
-                longi = longi + 1;
-                break;
-            case "west":
-                lati = lati - 1;
-                break;
-        }
+        //if (GameType.gameType.equals("console")){
+            switch(direction){
+                case "north":
+                    longi = longi - 1;
+                    break;
+                case "east":
+                    lati = lati + 1;
+                    break;
+                case "south":
+                    longi = longi + 1;
+                    break;
+                case "west":
+                    lati = lati - 1;
+                    break;
+            }
+        //}
+        // else{
+        //     /*directions are inverted + becomes - and - becomes +
+        //     for the gui since the updatePosition() is ran before checkPosition(0)
+        //     so the values for longitude and latitude have already been changed before
+        //     checking if the player has encounted an enemy or not */
+        //     switch(direction){
+        //         case "north":
+        //             longi = longi + 1;
+        //             break;
+        //         case "east":
+        //             lati = lati - 1;
+        //             break;
+        //         case "south":
+        //             longi = longi - 1;
+        //             break;
+        //         case "west":
+        //             lati = lati + 1;
+        //             break;
+        //     }
+        // }
         if (tmp[longi][lati] > 1 && tmp[longi][lati] < 9){
-            System.out.println("OH NO! Looks like we have encounted a not so nice guy...\nNothing a little magic can't take care off");
-            checkPosition = 1;
-            view = this.viewStats();
-            // gui gets stuck here because it's waiting for a console input to continue
-            // refactor fightHandler()
-            this.fightHandler(direction);
+            if (GameType.gameType.equals("console")){
+                System.out.println("OH NO! Looks like we have encounted a not so nice guy...\nNothing a little magic can't take care off");
+                this.viewStats();
+                // gui gets stuck here because it's waiting for a console input to continue
+                // refactor fightHandler()
+                this.fightHandler(direction);
+            }
+            else{
+                return (1);
+            }
         }
         else{
             System.out.println("I don't see anything to the " + direction);
             checkPosition = 0;
         }
+        return (0);
     }
 }

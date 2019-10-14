@@ -43,7 +43,7 @@ public class Guardian extends Hero implements Action{
         System.out.println("I am here to save you");
     }
 
-    public void checkPosition(String direction){
+    public int checkPosition(String direction){
         
         int longi = this.m.getLongitude();
         int lati = this.m.getLatitude();
@@ -74,6 +74,7 @@ public class Guardian extends Hero implements Action{
             System.out.println("I don't see anything to the " + direction);
             checkPosition = 0;
         }
+        return (0);
     }
     
 }

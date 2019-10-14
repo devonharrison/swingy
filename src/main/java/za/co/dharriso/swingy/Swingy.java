@@ -32,6 +32,7 @@ public class Swingy{
         }
         else{
             gameType = args[0].toLowerCase();
+            new CheckHeroState(0, 0);
             new GameType(gameType);
             if (gameType.equals("console")){
                 BufferedReader in = new BufferedReader(new InputStreamReader(System.in));

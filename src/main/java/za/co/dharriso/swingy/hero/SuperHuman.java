@@ -43,7 +43,7 @@ public class SuperHuman extends Hero implements Action{
         
     }
 
-    public void checkPosition(String direction){
+    public int checkPosition(String direction){
         
         int longi = this.m.getLongitude();
         int lati = this.m.getLatitude();
@@ -74,5 +74,6 @@ public class SuperHuman extends Hero implements Action{
             System.out.println("I don't see anything to the " + direction);
             checkPosition = 0;
         }
+        return (0);
     }
 }

@@ -903,80 +903,56 @@ public class GamePlayForm extends javax.swing.JFrame {
 
     private void northButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_northButtonMousePressed
         this.run = this.hero.updatePostion("north");
-        if (run == 1){
+        if (this.run == 1){
             winPanel.setVisible(true);
             navigateMapPanel.setVisible(false);
         }
         else{
-
-            if (this.hero.checkPosition == 1){
-                if (this.hero.view == 1){
-                    navigateMapPanel.setVisible(false);
-                    viewStatsPanel.setVisible(true);
-                }
-                JOptionPane.showMessageDialog(null, "CHECK POSITION: " + this.hero.checkPosition, "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "CHECK POSITION 2: " + this.hero.checkPosition, "Error", JOptionPane.ERROR_MESSAGE);
+            if (this.hero.checkPosition("north") == 1){
+                decideToFightPanel.setVisible(true);
+                navigateMapPanel.setVisible(false);
             }
         }
     }//GEN-LAST:event_northButtonMousePressed
 
     private void eastButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eastButtonMousePressed
         this.run = this.hero.updatePostion("east");
-        if (run == 1){
+        if (this.run == 1){
             winPanel.setVisible(true);
             navigateMapPanel.setVisible(false);
         }
         else{
-            if (this.hero.checkPosition == 1){
-                if (this.hero.view == 1){
-                    viewStatsPanel.setVisible(true);
-                    navigateMapPanel.setVisible(false);
-                }
-            }
-            else{
-
+            if (this.hero.checkPosition("east") == 1){
+                decideToFightPanel.setVisible(true);
+                navigateMapPanel.setVisible(false);
             }
         }
     }//GEN-LAST:event_eastButtonMousePressed
 
     private void southButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_southButtonMousePressed
         this.run = this.hero.updatePostion("south");
-        if (run == 1){
+        if (this.run == 1){
             winPanel.setVisible(true);
             navigateMapPanel.setVisible(false);
         }
         else{
-
-            if (this.hero.checkPosition == 1){
-                if (this.hero.view == 1){
-                    viewStatsPanel.setVisible(true);
-                    navigateMapPanel.setVisible(false);
-                }
-            }
-            else{
-
+            if (this.hero.checkPosition("south") == 1){
+                decideToFightPanel.setVisible(true);
+                navigateMapPanel.setVisible(false);
             }
         }
     }//GEN-LAST:event_southButtonMousePressed
 
     private void westButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_westButtonMousePressed
         this.run = this.hero.updatePostion("west");
-        if (run == 1){
+        if (this.run == 1){
             winPanel.setVisible(true);
             navigateMapPanel.setVisible(false);
         }
         else{
-
-            if (this.hero.checkPosition == 1){
-                if (this.hero.view == 1){
-                    viewStatsPanel.setVisible(true);
-                    navigateMapPanel.setVisible(false);
-                }
-            }
-            else{
-
+            if (this.hero.checkPosition("west") == 1){
+                decideToFightPanel.setVisible(true);
+                navigateMapPanel.setVisible(false);
             }
         }
     }//GEN-LAST:event_westButtonMousePressed
@@ -1088,6 +1064,8 @@ public class GamePlayForm extends javax.swing.JFrame {
 
     private Action hero;
     private int run;
+    private int checkPosition;
+    private int view;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutButton;
