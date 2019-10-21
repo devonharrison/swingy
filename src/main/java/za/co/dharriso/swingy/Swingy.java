@@ -45,8 +45,7 @@ public class Swingy{
                     System.out.println(GREEN + "You need to give your hero a name too, something cool perhaps?");
                     System.out.print(WHITE + "Hero name: ");
                     String name = in.readLine();
-                    Action hero = new Legion().newHero(name, type.toLowerCase(), 5, 5, m);
-                    hero.birthOfHero();
+                    Hero hero = new Legion().newHero(name, type.toLowerCase(), 5, 5, m);
                     String move = in.readLine();
                     int run = hero.updatePostion(move);
                     while (run == 0){

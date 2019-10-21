@@ -4,7 +4,7 @@ import za.co.dharriso.swingy.utils.CustomException;
 import za.co.dharriso.swingy.world.Map;
 
 public class Legion{
-    public Action newHero(String name, String type, int longitude, int latitude, Map m) throws CustomException{
+    public Hero newHero(String name, String type, int longitude, int latitude, Map m) throws CustomException{
         if (type.equals("guardian")){
             return(new Guardian(name, type, longitude, latitude, m));
         }

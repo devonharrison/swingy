@@ -1,9 +1,10 @@
 package za.co.dharriso.swingy.hero;
 
-import za.co.dharriso.swingy.utils.GameType;
-import za.co.dharriso.swingy.world.Map;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+import za.co.dharriso.swingy.utils.GameType;
+import za.co.dharriso.swingy.world.Map;
 
 public class Hero{
     protected Map m;
@@ -82,7 +83,7 @@ public class Hero{
         return (drop);
     }
 
-    protected String fight(int villain){
+    public String fight(int villain){
         String outcome;
         int attack = villain * 5;
         int defense = villain * 10;
@@ -146,9 +147,9 @@ public class Hero{
                 lati = lati - 1;
                 break;
         }
-        System.out.println("Do we want to fight him with magic or try and get away? (fight/flight)");
             try{
                 if (GameType.gameType.equals("console")){
+                    System.out.println("Do we want to fight him with magic or try and get away? (fight/flight)");
                     String action = in.readLine();
                     switch(action.toLowerCase()){
                         case "flight":
@@ -226,4 +227,93 @@ public class Hero{
         }
     }
 
+        public int updatePostion(String move){
+        String direction = move.toLowerCase();
+        if (GameType.gameType.equals("console")){
+            this.checkPosition(direction);
+        }
+        switch(direction){
+            case "north":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude() - 1, this.m.getLatitude());
+                break;
+            case "east":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() + 1);
+                break;
+            case "south":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude() + 1, this.m.getLatitude());
+                break;
+            case "west":
+                System.out.println("LONGITUDE: " + this.m.getLongitude() + " LATITUDE: " +this.m.getLatitude());
+                this.m.updateMap(this.m.getLongitude(), this.m.getLatitude() - 1);
+                break;
+        }
+        if (this.m.getLongitude() == 0 || this.m.getLongitude() == this.m.mapSize - 1 || this.m.getLatitude() == 0 || this.m.getLatitude() == this.m.mapSize - 1){
+            this.updateExperience(this.m.getMap()[this.m.getLongitude()][this.m.getLatitude()]);
+            return (1);
+        }
+        else {
+            return (0);
+        }
+    }
+
+    public int checkPosition(String direction){
+        int longi = this.m.getLongitude();
+        int lati = this.m.getLatitude();
+        int [][] tmp = this.m.getMap();
+        //if (GameType.gameType.equals("console")){
+            switch(direction){
+                case "north":
+                    longi = longi - 1;
+                    break;
+                case "east":
+                    lati = lati + 1;
+                    break;
+                case "south":
+                    longi = longi + 1;
+                    break;
+                case "west":
+                    lati = lati - 1;
+                    break;
+            }
+        //}
+        // else{
+        //     /*directions are inverted + becomes - and - becomes +
+        //     for the gui since the updatePosition() is ran before checkPosition(0)
+        //     so the values for longitude and latitude have already been changed before
+        //     checking if the player has encounted an enemy or not */
+        //     switch(direction){
+        //         case "north":
+        //             longi = longi + 1;
+        //             break;
+        //         case "east":
+        //             lati = lati - 1;
+        //             break;
+        //         case "south":
+        //             longi = longi - 1;
+        //             break;
+        //         case "west":
+        //             lati = lati + 1;
+        //             break;
+        //     }
+        // }
+        if (tmp[longi][lati] > 1 && tmp[longi][lati] < 9){
+            if (GameType.gameType.equals("console")){
+                System.out.println("OH NO! Looks like we have encounted a not so nice guy...");
+                this.viewStats();
+                // gui gets stuck here because it's waiting for a console input to continue
+                // refactor fightHandler()
+                this.fightHandler(direction);
+            }
+            else{
+                return (1);
+            }
+        }
+        else{
+            System.out.println("I don't see anything to the " + direction);
+        }
+        return (0);
+    }
 }

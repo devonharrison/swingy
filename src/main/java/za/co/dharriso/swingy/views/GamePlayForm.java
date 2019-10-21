@@ -5,9 +5,13 @@
  */
 package za.co.dharriso.swingy.views;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import javax.swing.JOptionPane;
-import za.co.dharriso.swingy.hero.*;
-import za.co.dharriso.swingy.world.*;
+
+import za.co.dharriso.swingy.hero.Hero;
+import za.co.dharriso.swingy.hero.Legion;
+import za.co.dharriso.swingy.world.Map;
 
 /**
  *
@@ -544,6 +548,11 @@ public class GamePlayForm extends javax.swing.JFrame {
         pickupButton.setFont(new java.awt.Font("Gang of Three", 0, 24)); // NOI18N
         pickupButton.setForeground(new java.awt.Color(226, 106, 106));
         pickupButton.setText("pickup");
+        pickupButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pickupButtonMousePressed(evt);
+            }
+        });
 
         nahButton.setFont(new java.awt.Font("Gang of Three", 0, 24)); // NOI18N
         nahButton.setForeground(new java.awt.Color(226, 106, 106));
@@ -997,11 +1006,21 @@ public class GamePlayForm extends javax.swing.JFrame {
     }//GEN-LAST:event_createHeroButtonMousePressed
 
     private void fightButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fightButtonMousePressed
-        // TODO add your handling code here:
+        int villain = ThreadLocalRandom.current().nextInt(2, 10);
+        String result = hero.fight(villain);
+        if (result.equals("lose")){
+            losePanel.setVisible(true);
+            decideToFightPanel.setVisible(false);
+        }
+        else{
+            dropPanel.setVisible(true);
+            decideToFightPanel.setVisible(false);
+        }
     }//GEN-LAST:event_fightButtonMousePressed
 
     private void runButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_runButtonMousePressed
-        // TODO add your handling code here:
+        decideToFightPanel.setVisible(false);
+        navigateMapPanel.setVisible(true);
     }//GEN-LAST:event_runButtonMousePressed
 
     private void continueButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continueButtonMousePressed
@@ -1023,6 +1042,14 @@ public class GamePlayForm extends javax.swing.JFrame {
 
     private void noViewStatsButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noViewStatsButtonMousePressed
         // TODO add your handling code here:
+    }//GEN-LAST:event_noViewStatsButtonMousePressed
+
+    private void pickupButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noViewStatsButtonMousePressed
+        String [] arr = {"weapon", "armour", "helm"};
+        int artifact = ThreadLocalRandom.current().nextInt(0, 3);
+        hero.heroStatsChange(arr[artifact]);
+        dropPanel.setVisible(false);
+        navigateMapPanel.setVisible(true);
     }//GEN-LAST:event_noViewStatsButtonMousePressed
 
     private void setHeroStatsLabel(String name, String type){
@@ -1062,10 +1089,8 @@ public class GamePlayForm extends javax.swing.JFrame {
      */
 
 
-    private Action hero;
+    private Hero hero;
     private int run;
-    private int checkPosition;
-    private int view;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutButton;
