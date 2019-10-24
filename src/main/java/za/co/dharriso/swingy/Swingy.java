@@ -3,10 +3,14 @@ package za.co.dharriso.swingy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import za.co.dharriso.swingy.hero.*;
+
+import za.co.dharriso.swingy.hero.Hero;
+import za.co.dharriso.swingy.hero.Legion;
+import za.co.dharriso.swingy.utils.CheckHeroState;
+import za.co.dharriso.swingy.utils.DataBaseConnect;
+import za.co.dharriso.swingy.utils.GameType;
 import za.co.dharriso.swingy.views.GamePlayForm;
-import za.co.dharriso.swingy.world.*;
-import za.co.dharriso.swingy.utils.*;
+import za.co.dharriso.swingy.world.Map;
 
 public class Swingy{
     public static final String BLACK = "\u001B[30m";
@@ -37,28 +41,39 @@ public class Swingy{
             if (gameType.equals("console")){
                 BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
                 System.out.println(CYAN + "Welcome to Swingy in its console form !");
-                System.out.println(GREEN + "To begin, create your own hero by selecting one of the following hero types: Guardian, Interlect, SuperHuman, Wizard");
-                System.out.print(WHITE + "Hero type: ");
-                try{
-                    Map m = new Map(1);
-                    String type = in.readLine();
-                    System.out.println(GREEN + "You need to give your hero a name too, something cool perhaps?");
-                    System.out.print(WHITE + "Hero name: ");
-                    String name = in.readLine();
-                    Hero hero = new Legion().newHero(name, type.toLowerCase(), 5, 5, m);
-                    String move = in.readLine();
-                    int run = hero.updatePostion(move);
-                    while (run == 0){
-                        move = in.readLine();
-                        run = hero.updatePostion(move);
-                        if (run == 1){
-                            System.out.println("==================== YOU WON ====================");
-                            System.exit(0);
+                System.out.println("Do you want to create a new hero or carry on from last time? (new/load)");
+                String gameSave = in.readLine();
+                if (gameSave.toLowerCase().equals("new")){
+                    System.out.println(GREEN + "To begin, create your own hero by selecting one of the following hero types: Guardian, Interlect, SuperHuman, Wizard");
+                    System.out.print(WHITE + "Hero type: ");
+                    try{
+                        Map m = new Map(1);
+                        String type = in.readLine();
+                        System.out.println(GREEN + "You need to give your hero a name too, something cool perhaps?");
+                        System.out.print(WHITE + "Hero name: ");
+                        String name = in.readLine();
+                        Hero hero = new Legion().newHero(name, type.toLowerCase(), 5, 5, m);
+                        String move = in.readLine();
+                        int run = hero.updatePostion(move);
+                        while (run == 0){
+                            move = in.readLine();
+                            run = hero.updatePostion(move);
+                            if (run == 1){
+                                System.out.println("==================== YOU WON ====================");
+                                System.exit(0);
+                            }
                         }
+                    } catch(Exception e){
+                        System.out.print(e);
                     }
-                } catch(Exception e){
-                    System.out.print(e);
                 }
+                else if(gameSave.toLowerCase().equals("load")){
+                    DataBaseConnect db = new DataBaseConnect();
+                }
+                else{
+                    System.out.println("Can younot read? new or load..");
+                }
+
             }
             if (gameType.equals("gui")){
                 GamePlayForm sg = new GamePlayForm();
