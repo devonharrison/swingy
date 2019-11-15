@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 
 import za.co.dharriso.swingy.utils.GameType;
 import za.co.dharriso.swingy.world.Map;
+import za.co.dharriso.swingy.utils.FileHandling;
 
 public class Hero{
     protected Map m;
@@ -15,10 +16,8 @@ public class Hero{
     protected int attack;
     protected int defense;
     protected int hitPoints;
-    protected int id;
     protected int longitude;
     protected int latitude;
-    private static int idCounter = 1;
 
     public String outcome;
 
@@ -46,13 +45,16 @@ public class Hero{
         this.level = 1;
         this.experience = 0;
         this.hitPoints = 100;
-        this.id = nextId();
         this.m = m;
         this.longitude = longitude;
         this.latitude = latitude;
-    }
-    private int nextId(){
-        return (Hero.idCounter++);
+
+        // if(FileHandling.checkIfHeroExists(name, type)){
+        //     System.out.println("Hero " + name + " of type " + type + " already exists");
+        // }
+        // else{
+            FileHandling.addToArr(this);
+        //}
     }
 
     protected String dropFromVillain(int villain){
@@ -173,6 +175,7 @@ public class Hero{
                             }
                             else{
                                 System.out.println("=============== YOU DIED YOU FOOL ===============");
+                                FileHandling.addToArr(this);
                                 System.exit(0);
                             }
                             break;
@@ -263,7 +266,6 @@ public class Hero{
         int longi = this.m.getLongitude();
         int lati = this.m.getLatitude();
         int [][] tmp = this.m.getMap();
-        //if (GameType.gameType.equals("console")){
             switch(direction){
                 case "north":
                     longi = longi - 1;
@@ -278,33 +280,11 @@ public class Hero{
                     lati = lati - 1;
                     break;
             }
-        //}
-        // else{
-        //     /*directions are inverted + becomes - and - becomes +
-        //     for the gui since the updatePosition() is ran before checkPosition(0)
-        //     so the values for longitude and latitude have already been changed before
-        //     checking if the player has encounted an enemy or not */
-        //     switch(direction){
-        //         case "north":
-        //             longi = longi + 1;
-        //             break;
-        //         case "east":
-        //             lati = lati - 1;
-        //             break;
-        //         case "south":
-        //             longi = longi - 1;
-        //             break;
-        //         case "west":
-        //             lati = lati + 1;
-        //             break;
-        //     }
-        // }
+
         if (tmp[longi][lati] > 1 && tmp[longi][lati] < 9){
             if (GameType.gameType.equals("console")){
                 System.out.println("OH NO! Looks like we have encounted a not so nice guy...");
                 this.viewStats();
-                // gui gets stuck here because it's waiting for a console input to continue
-                // refactor fightHandler()
                 this.fightHandler(direction);
             }
             else{
@@ -315,5 +295,53 @@ public class Hero{
             System.out.println("I don't see anything to the " + direction);
         }
         return (0);
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getType(){
+        return this.type;
+    }
+
+    public int getAttack(){
+        return this.attack;
+    }
+
+    public int getDefense(){
+        return this.defense;
+    }
+
+    public int getHitpoints(){
+        return this.hitPoints;
+    }
+
+    public int getExperience(){
+        return this.experience;
+    }
+
+    public int getLevel(){
+        return this.level;
+    }
+
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
+
+    public void setDefense(int defense){
+        this.defense = defense;
+    }
+
+    public void setHitpoints(int hitpoints){
+        this.hitPoints = hitpoints;
+    }
+
+    public void setExperince(int xp){
+        this.experience = xp;
+    }
+
+    public void setLevel(int level){
+        this.level = level;
     }
 }

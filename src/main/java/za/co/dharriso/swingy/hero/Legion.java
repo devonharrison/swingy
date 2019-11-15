@@ -21,4 +21,5 @@ public class Legion{
             throw new CustomException("[ERROR] Invalid hero type");
         }
     }
+
 }
