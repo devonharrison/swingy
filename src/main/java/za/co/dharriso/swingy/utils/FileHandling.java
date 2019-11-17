@@ -27,6 +27,7 @@ public class FileHandling{
     //Add name, type, attack, defense, hitpoints, experience, level. IN THAT ORDER seperated by spaces
     static public void addToArr(Hero hero){
         String str = hero.getName() + " " + hero.getType() + " " + hero.getAttack() + " " + hero.getDefense() + " " + hero.getHitpoints() + " " + hero.getExperience() + " " + hero.getLevel();
+        
         if (!msg.isEmpty()){
             for (String line : msg){
                 String [] tmp = line.split(" ");
@@ -38,6 +39,21 @@ public class FileHandling{
         }
         else{
             msg.add(str + "\n");
+        }
+    }
+
+    static public void removeFromArr(Hero hero){
+        for (String line : msg){
+            String [] tmp = line.split(" ");
+            if (tmp[0].equals(hero.getName()) &&
+            (tmp[1].equals(hero.getType())) &&
+            (Integer.parseInt(tmp[2]) == (hero.getAttack())) &&
+            (Integer.parseInt(tmp[3]) == (hero.getDefense())) &&
+            (Integer.parseInt(tmp[4]) == (hero.getHitpoints())) &&
+            (Integer.parseInt(tmp[5]) == (hero.getExperience())) &&
+            (Integer.parseInt(tmp[6]) == (hero.getLevel()))){
+                msg.remove(line);
+            }
         }
     }
 
@@ -84,6 +100,7 @@ public class FileHandling{
                 catch(Exception e){
                     System.out.println("Error creating hero: 1" + e);
                 }
+                break;
             }
         }
         return hero;

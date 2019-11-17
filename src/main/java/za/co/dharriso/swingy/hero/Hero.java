@@ -53,7 +53,7 @@ public class Hero{
         //     System.out.println("Hero " + name + " of type " + type + " already exists");
         // }
         // else{
-            FileHandling.addToArr(this);
+            // FileHandling.addToArr(this);
         //}
     }
 

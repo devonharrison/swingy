@@ -6,9 +6,6 @@ import java.io.InputStreamReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import za.co.dharriso.swingy.hero.Hero;
 import za.co.dharriso.swingy.hero.Legion;
@@ -45,9 +42,10 @@ public class Swingy{
             new CheckHeroState(0, 0);
             new GameType(gameType);
 
-            File file = new File("heros.txt");
-            FileWriter fw = new FileWriter(file, true);
+            // File file = new File("heros.txt");
+            // FileWriter fw = new FileWriter(file, true);
             Hero hero = null;
+            Hero tmp = null;
             new FileHandling();
 
             if (gameType.equals("console")){
@@ -68,6 +66,7 @@ public class Swingy{
                     name = in.readLine();
                     try{
                         hero = new Legion().newHero(name, type.toLowerCase(), 5, 5, m);
+                        FileHandling.addToArr(hero);
                     }
                     catch(Exception e){
                         System.out.println("Error creating hero: " + e);
@@ -79,7 +78,9 @@ public class Swingy{
                         FileHandling.listHeros(readFile);
                         System.out.println("Which hero would you like to select? (Insert name, case sensitive)");
                         String heroName = in.readLine();
-                        FileHandling.getHero(heroName);
+                        hero = FileHandling.getHero(heroName);
+                        tmp = hero;
+                        FileHandling.addToArr(hero);
                         readFile.close();
                     }
                     catch(Exception e){
@@ -93,10 +94,16 @@ public class Swingy{
 
                     String move = in.readLine();
                     int run = hero.updatePostion(move);
+                    File file = new File("heros.txt");
+                    FileWriter fw = new FileWriter(file);
                     while (run == 0){
                         move = in.readLine();
                         run = hero.updatePostion(move);
                         if (run == 1){
+                            if (gameSave.toLowerCase().equals("load")){
+                                FileHandling.removeFromArr(tmp);
+                            }
+                            FileHandling.addToArr(hero);
                             FileHandling.saveHero(fw);
                             System.out.println("==================== YOU WON ====================");
                             fw.close();
