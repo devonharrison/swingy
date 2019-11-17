@@ -48,13 +48,6 @@ public class Hero{
         this.m = m;
         this.longitude = longitude;
         this.latitude = latitude;
-
-        // if(FileHandling.checkIfHeroExists(name, type)){
-        //     System.out.println("Hero " + name + " of type " + type + " already exists");
-        // }
-        // else{
-            // FileHandling.addToArr(this);
-        //}
     }
 
     protected String dropFromVillain(int villain){
