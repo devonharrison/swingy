@@ -1,6 +1,7 @@
-package za.co.dharriso.swingy.hero;
+package za.co.dharriso.swingy.models;
 
-import za.co.dharriso.swingy.world.Map;
+import za.co.dharriso.swingy.controller.Map;
+import za.co.dharriso.swingy.controller.Hero;
 
 public class Guardian extends Hero{
 

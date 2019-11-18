@@ -1,11 +1,11 @@
-package za.co.dharriso.swingy.hero;
+package za.co.dharriso.swingy.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import za.co.dharriso.swingy.utils.GameType;
-import za.co.dharriso.swingy.world.Map;
-import za.co.dharriso.swingy.utils.FileHandling;
+import za.co.dharriso.swingy.controller.GameType;
+import za.co.dharriso.swingy.controller.Map;
+import za.co.dharriso.swingy.controller.FileHandling;
 
 public class Hero{
     protected Map m;

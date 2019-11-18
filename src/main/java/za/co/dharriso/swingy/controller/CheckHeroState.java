@@ -1,4 +1,4 @@
-package za.co.dharriso.swingy.utils;
+package za.co.dharriso.swingy.controller;
 
 public class CheckHeroState{
     public static int checkPosition;

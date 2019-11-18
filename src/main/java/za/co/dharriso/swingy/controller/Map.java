@@ -1,4 +1,4 @@
-package za.co.dharriso.swingy.world;
+package za.co.dharriso.swingy.controller;
 
 import java.util.Random;
 

@@ -9,9 +9,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JOptionPane;
 
-import za.co.dharriso.swingy.hero.Hero;
-import za.co.dharriso.swingy.hero.Legion;
-import za.co.dharriso.swingy.world.Map;
+import za.co.dharriso.swingy.controller.Hero;
+import za.co.dharriso.swingy.controller.Legion;
+import za.co.dharriso.swingy.controller.Map;
+import za.co.dharriso.swingy.controller.FileHandling;
 
 /**
  *
@@ -1047,6 +1048,7 @@ public class GamePlayForm extends javax.swing.JFrame {
         if (heroType.length() > 0 && heroName.length() > 0){
             try{
                 this.hero = new Legion().newHero(heroName, heroType, 5, 5, m);
+                FileHandling.addToArr(hero);
                 setHeroStatsLabel(heroName, heroType);
                 heroCreatedPanel.setVisible(true);
                 createHeroPanel.setVisible(false);

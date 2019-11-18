@@ -1,12 +1,12 @@
-package za.co.dharriso.swingy.utils;
+package za.co.dharriso.swingy.controller;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
-import za.co.dharriso.swingy.hero.Hero;
-import za.co.dharriso.swingy.hero.Legion;
-import za.co.dharriso.swingy.world.Map;
+import za.co.dharriso.swingy.controller.Hero;
+import za.co.dharriso.swingy.controller.Legion;
+import za.co.dharriso.swingy.controller.Map;
 
 public class FileHandling{
     private static List<String> msg = new ArrayList<String>();

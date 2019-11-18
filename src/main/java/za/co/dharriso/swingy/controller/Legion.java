@@ -1,7 +1,8 @@
-package za.co.dharriso.swingy.hero;
+package za.co.dharriso.swingy.controller;
 
-import za.co.dharriso.swingy.utils.CustomException;
-import za.co.dharriso.swingy.world.Map;
+import za.co.dharriso.swingy.controller.CustomException;
+import za.co.dharriso.swingy.controller.Map;
+import za.co.dharriso.swingy.models.*;
 
 public class Legion{
     public Hero newHero(String name, String type, int longitude, int latitude, Map m) throws CustomException{

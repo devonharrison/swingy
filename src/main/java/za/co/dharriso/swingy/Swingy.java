@@ -6,14 +6,13 @@ import java.io.InputStreamReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import javax.validation.constraints.NotBlank;
 
-import za.co.dharriso.swingy.hero.Hero;
-import za.co.dharriso.swingy.hero.Legion;
-import za.co.dharriso.swingy.utils.CheckHeroState;
-import za.co.dharriso.swingy.utils.FileHandling;
-import za.co.dharriso.swingy.utils.GameType;
-import za.co.dharriso.swingy.views.GamePlayForm;
-import za.co.dharriso.swingy.world.Map;
+
+import za.co.dharriso.swingy.controller.*;
+import za.co.dharriso.swingy.models.*;
+import za.co.dharriso.swingy.views.*;
+
 
 public class Swingy{
     public static final String BLACK = "\u001B[30m";
@@ -50,7 +49,10 @@ public class Swingy{
 
             if (gameType.equals("console")){
                 BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+                
+                @NotBlank
                 String type = "";
+                @NotBlank
                 String name = "";
                 Map m = null;
                 System.out.println(CYAN + "Welcome to Swingy in its console form !");

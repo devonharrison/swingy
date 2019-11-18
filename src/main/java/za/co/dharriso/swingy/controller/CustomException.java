@@ -1,4 +1,4 @@
-package za.co.dharriso.swingy.utils;
+package za.co.dharriso.swingy.controller;
 
 public class CustomException extends Exception{
     private static final long serialVersionUID = 1L;
