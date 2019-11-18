@@ -30,11 +30,11 @@ public class GamePlayForm extends javax.swing.JFrame {
         createHeroPanel.setVisible(false);
         decideToFightPanel.setVisible(false);
         dropPanel.setVisible(false);
-        loadHeroPanel.setVisible(false);
         navigateMapPanel.setVisible(false);
         noDropPanel.setVisible(false);
         heroCreatedPanel.setVisible(false);
         viewStatsPanel.setVisible(false);
+        loadHerosPanel.setVisible(false);
     }
 
     /**
@@ -72,7 +72,6 @@ public class GamePlayForm extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         createHeroButton = new javax.swing.JButton();
-        loadHeroPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         noDropPanel = new javax.swing.JPanel();
@@ -114,6 +113,14 @@ public class GamePlayForm extends javax.swing.JFrame {
         viewStatsButton = new javax.swing.JButton();
         noViewStatsButton = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
+
+        loadHerosPanel = new javax.swing.JPanel();
+        headingLabel = new javax.swing.JLabel();
+        chooseYourHeroLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        displayHerosTextArea = new javax.swing.JTextArea();
+        insesrtHeroNameField = new javax.swing.JTextField();
+        continueForLoadingHeros = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,6 +192,74 @@ public class GamePlayForm extends javax.swing.JFrame {
                 .addComponent(aboutButton)
                 .addGap(62, 62, 62))
         );
+
+        //LOAD HERO PANEL START ==================================================================
+
+        loadHerosPanel.setBackground(new java.awt.Color(36, 37, 42));
+
+        headingLabel.setFont(new java.awt.Font("Gang of Three", 0, 48)); // NOI18N
+        headingLabel.setForeground(new java.awt.Color(226, 106, 106));
+        headingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headingLabel.setText("just swingy");
+
+        chooseYourHeroLabel.setFont(new java.awt.Font("Gang of Three", 0, 16)); // NOI18N
+        chooseYourHeroLabel.setForeground(new java.awt.Color(226, 106, 106));
+        chooseYourHeroLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        chooseYourHeroLabel.setText("- choose your hero -");
+
+        displayHerosTextArea.setEditable(false);
+        displayHerosTextArea.setBackground(new java.awt.Color(36, 37, 42));
+        displayHerosTextArea.setColumns(20);
+        displayHerosTextArea.setFont(new java.awt.Font("Gang of Three", 0, 14)); // NOI18N
+        displayHerosTextArea.setForeground(new java.awt.Color(226, 106, 106));
+        displayHerosTextArea.setRows(5);
+        jScrollPane1.setViewportView(displayHerosTextArea);
+
+        insesrtHeroNameField.setBackground(new java.awt.Color(44, 45, 50));
+        insesrtHeroNameField.setFont(new java.awt.Font("Gang of Three", 0, 14)); // NOI18N
+        insesrtHeroNameField.setForeground(new java.awt.Color(226, 106, 106));
+
+        continueForLoadingHeros.setFont(new java.awt.Font("Gang of Three", 0, 24)); // NOI18N
+        continueForLoadingHeros.setForeground(new java.awt.Color(226, 106, 106));
+        continueForLoadingHeros.setText("continue");
+        continueForLoadingHeros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                continueForLoadingHerosMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loadHerosPanelLayout = new javax.swing.GroupLayout(loadHerosPanel);
+
+        loadHerosPanel.setLayout(loadHerosPanelLayout);
+        loadHerosPanelLayout.setHorizontalGroup(
+            loadHerosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loadHerosPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(loadHerosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(continueForLoadingHeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(insesrtHeroNameField)
+                    .addComponent(jScrollPane1)
+                    .addComponent(headingLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addComponent(chooseYourHeroLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        loadHerosPanelLayout.setVerticalGroup(
+            loadHerosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loadHerosPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(headingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chooseYourHeroLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(insesrtHeroNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(continueForLoadingHeros, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        //LOAD HERO PANEL END ====================================================================
 
         navigateMapPanel.setBackground(new java.awt.Color(36, 37, 42));
 
@@ -380,38 +455,6 @@ public class GamePlayForm extends javax.swing.JFrame {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        loadHeroPanel.setBackground(new java.awt.Color(36, 37, 42));
-
-        jLabel5.setFont(new java.awt.Font("Gang of Three", 0, 48)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(226, 106, 106));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Just swingy");
-
-        jLabel24.setFont(new java.awt.Font("Gang of Three", 0, 16)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(226, 106, 106));
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("- load hero -");
-
-        javax.swing.GroupLayout loadHeroPanelLayout = new javax.swing.GroupLayout(loadHeroPanel);
-        loadHeroPanel.setLayout(loadHeroPanelLayout);
-        loadHeroPanelLayout.setHorizontalGroup(
-            loadHeroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loadHeroPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(loadHeroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        loadHeroPanelLayout.setVerticalGroup(
-            loadHeroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loadHeroPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(419, Short.MAX_VALUE))
-        );
 
         noDropPanel.setBackground(new java.awt.Color(36, 37, 42));
 
@@ -814,8 +857,8 @@ public class GamePlayForm extends javax.swing.JFrame {
                 .addComponent(navigateMapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(createHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(loadHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            // .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            //     .addComponent(loadHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(noDropPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -848,6 +891,9 @@ public class GamePlayForm extends javax.swing.JFrame {
                     .addGap(22, 22, 22)
                     .addComponent(viewStatsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(2, 2, 2)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(loadHerosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -858,8 +904,8 @@ public class GamePlayForm extends javax.swing.JFrame {
                     .addGap(0, 24, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(createHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(loadHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            // .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            //     .addComponent(loadHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(noDropPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -892,10 +938,16 @@ public class GamePlayForm extends javax.swing.JFrame {
                     .addGap(22, 22, 22)
                     .addComponent(viewStatsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(2, 2, 2)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(loadHerosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void continueForLoadingHerosMousePressed(java.awt.event.MouseEvent evt) {                                                     
+        // TODO add your handling code here:
+    }  
 
     private void newHeroButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newHeroButtonMousePressed
         startGamePanel.setVisible(false);
@@ -907,7 +959,8 @@ public class GamePlayForm extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutButtonMousePressed
 
     private void loadHeroButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadHeroButtonMousePressed
-        // TODO add your handling code here:
+        startGamePanel.setVisible(false);
+        loadHerosPanel.setVisible(true);
     }//GEN-LAST:event_loadHeroButtonMousePressed
 
     private void northButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_northButtonMousePressed
@@ -1142,7 +1195,7 @@ public class GamePlayForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton loadHeroButton;
-    private javax.swing.JPanel loadHeroPanel;
+    // private javax.swing.JPanel loadHeroPanel;
     private javax.swing.JPanel losePanel;
     private javax.swing.JButton nahButton;
     private javax.swing.JPanel navigateMapPanel;
@@ -1161,5 +1214,13 @@ public class GamePlayForm extends javax.swing.JFrame {
     private javax.swing.JButton westButton;
     private javax.swing.JPanel winPanel;
     private javax.swing.JRadioButton wizardRadioButton;
+
+    private javax.swing.JLabel chooseYourHeroLabel;
+    private javax.swing.JButton continueForLoadingHeros;
+    private javax.swing.JTextArea displayHerosTextArea;
+    private javax.swing.JLabel headingLabel;
+    private javax.swing.JTextField insesrtHeroNameField;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel loadHerosPanel;
     // End of variables declaration//GEN-END:variables
 }
